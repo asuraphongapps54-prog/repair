@@ -480,6 +480,36 @@ a.gal-i{align-items:center;justify-content:center;aspect-ratio:1;border:1px soli
 #printroot{display:none}
 @media print{html.print-mode body>*:not(#printroot){display:none!important}html.print-mode body{background:#fff!important}
   html.print-mode #printroot{display:block}html.print-mode .doc{padding:0;font-size:13.5pt}@page{margin:16mm}}
+/*@@SHAREDCSS@@*/
+
+/* ===== ใช้ร่วม: หน้าเชื่อมชีต + ผู้ช่วยคู่มือ ===== */
+.cn-h{display:flex;gap:12px;align-items:flex-start}.cn-h>svg{width:34px;height:34px;flex:none;color:var(--acc,#5b5bd6)}
+.cn-steps{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:8px}.cn-steps li span{display:block;font-size:.88em;color:var(--muted)}
+.cn-alt{display:flex;flex-wrap:wrap;gap:8px}.cn-alt .btn{flex:1 1 180px}
+.cn-link{display:flex;flex-direction:column;gap:10px;align-items:center;border:1.5px dashed var(--line);border-radius:14px;padding:12px;width:100%}
+.cn-link .mono{overflow-wrap:anywhere;text-align:center}.cn-qr{width:180px;max-width:70%}.cn-qr svg{width:100%;height:auto;display:block;background:#fff;border-radius:10px}
+.helpfab{position:fixed;right:max(14px,env(safe-area-inset-right,0px));bottom:max(14px,env(safe-area-inset-bottom,0px));z-index:30;display:flex;flex-direction:column;align-items:center;gap:0;
+  border:0;background:transparent;cursor:pointer;font:600 .72rem/1 var(--f-head,inherit);color:var(--ink);padding:0;filter:drop-shadow(0 8px 16px rgba(60,60,150,.28))}
+.helpfab span{background:var(--surface,#fff);border:1px solid var(--line);border-radius:99px;padding:3px 8px;margin-top:-4px}
+html[data-public] .helpfab,html.printing .helpfab{display:none}
+@media print{.helpfab{display:none!important}}
+@media (prefers-reduced-motion:no-preference){.helpfab .bot{animation:botbob 3.5s ease-in-out infinite}.hp-say.pop{animation:botpop .25s ease-out}}
+@keyframes botbob{50%{transform:translateY(-4px)}}@keyframes botpop{from{transform:scale(.96);opacity:.4}to{transform:none;opacity:1}}
+.hp{display:flex;flex-direction:column;gap:12px}.hp-top{display:flex;gap:10px;align-items:flex-start;padding-right:36px}.hp-top .bot{flex:none}
+.hp-say{position:relative;background:var(--sunk,#f3f4fb);border:1px solid var(--line);border-radius:16px;padding:10px 12px;font-size:.95em;line-height:1.55}
+.hp-say::before{content:"";position:absolute;left:-7px;top:16px;width:12px;height:12px;background:inherit;border-left:1px solid var(--line);border-bottom:1px solid var(--line);transform:rotate(45deg)}
+.hp-list{display:flex;flex-direction:column;gap:6px}
+.hp-q{display:flex;align-items:center;gap:10px;width:100%;text-align:left;border:1.5px solid var(--line);background:var(--surface,#fff);color:inherit;border-radius:12px;padding:10px 12px;font:inherit;cursor:pointer;min-height:48px}
+.hp-q span{flex:1}.hp-q svg{width:20px;height:20px;flex:none;color:var(--acc,#5b5bd6)}.hp-q[aria-pressed=true]{border-color:var(--acc,#5b5bd6);background:color-mix(in srgb,var(--acc,#5b5bd6) 8%,transparent)}
+.hp-h{display:flex;gap:8px;align-items:center;margin:4px 0}.hp-h svg{width:22px;height:22px;color:var(--acc,#5b5bd6)}
+.hp-steps{margin:0;padding-left:0;list-style:none;counter-reset:hs;display:flex;flex-direction:column;gap:8px}
+.hp-steps li{counter-increment:hs;display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:start}
+.hp-steps li::before{content:counter(hs);width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#6d6af0,#a77bf3);color:#fff;font-weight:700;font-size:.85em}
+.helprow{display:flex;align-items:center;gap:12px;width:100%;text-align:left;border:1.5px solid var(--line);background:var(--surface,#fff);color:inherit;border-radius:16px;padding:10px 14px;font:inherit;cursor:pointer}
+.helprow>span{flex:1;display:flex;flex-direction:column}.helprow>svg:last-child{width:20px;height:20px;color:var(--muted)}
+.hp .tabs{display:flex;gap:6px}.hp .tabs button{flex:1;display:inline-flex;gap:6px;align-items:center;justify-content:center;min-height:44px;white-space:nowrap;padding:0 8px;font-size:.92em}
+.hp .tabs button svg,.hp .linkbtn svg,.hp .alert svg{width:18px;height:18px;flex:none}.hp .linkbtn{display:inline-flex;gap:4px;align-items:center}
+.hp .btn svg{width:20px;height:20px}
 
 /* ===== ร้านซ่อม ===== */
 .kbtn{text-align:left;cursor:pointer;font:inherit;color:inherit}.kbtn:active{transform:scale(.98)}.kpi.bad{border-color:var(--bad)}.kpi.bad b{color:var(--bad)}
@@ -529,6 +559,7 @@ a.gal-i{align-items:center;justify-content:center;aspect-ratio:1;border:1px soli
   <div class="seg" role="group" aria-label="บทบาท" id="demo-role">
     <button data-r="admin">เจ้าของร้าน</button><button data-r="front">หน้าร้าน</button><button data-r="tech">ช่าง</button><button data-r="cust">ลูกค้า (ลิงก์ติดตาม)</button><button data-r="login">หน้าเข้าสู่ระบบ</button></div>
   <div class="seg" role="group" aria-label="แพ็กเกจ" id="demo-plan"><button data-p="free">ฟรี</button><button data-p="pro">โปร ✦</button></div>
+  <select class="input" id="demo-type" aria-label="ประเภทร้านตัวอย่าง" style="width:auto;padding:6px 10px"></select>
   <button class="btn btn-line btn-sm" id="demo-reset">ล้างข้อมูลตัวอย่าง</button>
 </div></div>
 <main id="app"><div class="loading">กำลังโหลด…</div></main>
@@ -694,22 +725,72 @@ const isoD=d=>d.getFullYear()+'-'+p2(d.getMonth()+1)+'-'+p2(d.getDate());
 const isoTH=s=>{const m=/^(\d{4})-(\d{2})-(\d{2})/.exec(s||'');return m?`${+m[3]} ${TH_MONF[+m[2]-1]} ${+m[1]+543}`:(s||'')};
 const dateTH=s=>{const m=/^(\d{2})\/(\d{2})\/(\d{4})/.exec(s||'');return m?`${+m[1]} ${TH_MONF[+m[2]-1]} ${+m[3]+543}`:(s||'')};
 function setFs(v){document.documentElement.style.setProperty('--fs',v);store.set('repFs',v);document.querySelectorAll('[data-fs]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.fs===String(v)))}
+P.tag='<path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.5"/>';P.clock='<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>';
 P.bell='<path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>';
 P.qr='<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM20 14v.01M14 20h.01M17 20h4v-3"/>';
 P.logo='<rect x="3" y="3" width="18" height="18" rx="4"/><path d="M14.5 8.2a3 3 0 0 0-4 3.9L7 15.6 8.4 17l3.5-3.5a3 3 0 0 0 3.9-4l-1.8 1.8-1.6-.3-.3-1.6z"/>';
 
-const FIXED_API='https://script.google.com/macros/s/AKfycbz67w_WCY29Gp5yp9MkAXtR-7gYp8WRPCbRKrbX2aIOGnI9L6kS0JSxcubb82UskTci_A/exec';
+const FIXED_API='';
 const DEV='Asuraphong Apps', TOKEN='repairToken';
 const DEMO=typeof GASShim!=='undefined';
 const EXEC_RE=/^https:\/\/script\.google\.com\/macros\/s\/[\w-]+\/exec$/;
 let BIZ=null, ME=null, view={name:'home'};
 const isAdmin=()=>!!ME&&ME.role==='admin';
 const PRO=()=>!!BIZ&&BIZ.plan==='pro';
+/* ===== เชื่อมหน้าแอปกับ Google Sheets ของร้าน (ใช้ร่วมทุกแอป) =====
+ * หน้าแอป 1 ไฟล์ใช้ได้ทุกร้าน: ลิงก์ของร้านคือ  github.io/<แอป>/?k=<รหัสการทำให้ใช้งานได้>
+ * เปิดครั้งแรกด้วย ?k= แล้วเครื่องจะจำไว้ (เพิ่มไปยังหน้าจอโฮมได้) · ถ้ายังไม่รู้ลิงก์ จะขึ้นหน้า "เชื่อมแอปกับชีต"
+ * ใส่ FIXED_API ตอน build ได้เหมือนเดิม (ร้านที่ติดตั้งให้แบบเดิมไม่ต้องเปลี่ยนอะไร)
+ * ต้องมีก่อนไฟล์นี้: FIXED_API, DEMO, EXEC_RE, store, esc, icon, errBox, busy, toast, qrSvg, modal · ค่าแทนที่ตอน build: repair แอปร้านซ่อม / รับงาน https://asuraphongapps54-prog.github.io/?install=repair */
+const CONNECT_KEY='repairApi', KEY_RE=/^[\w-]{20,140}$/;
+const keyOf=u=>{const m=/^https:\/\/script\.google\.com\/macros\/s\/([\w-]+)\/exec$/.exec(String(u||'').trim());return m?m[1]:''};
+function apiUrl(){
+  if(EXEC_RE.test(FIXED_API))return FIXED_API;
+  try{const q=new URLSearchParams(location.search).get('k');if(q&&KEY_RE.test(q))store.set(CONNECT_KEY,q)}catch(e){}
+  const k=store.get(CONNECT_KEY);return k&&KEY_RE.test(k)?'https://script.google.com/macros/s/'+k+'/exec':'';
+}
+const NEED_CONNECT=!DEMO&&!apiUrl();
+const shopLink=()=>{const k=keyOf(apiUrl());return k?location.origin+location.pathname.replace(/[^/]*$/,'')+'?k='+k:''};
+function vConnect(){
+  document.documentElement.dataset.public='1';
+  app.innerHTML=`<div class="narrow stack"><section class="panel"><div class="cn-h">${icon('link')}<div><h2>เชื่อมแอปกับ Google Sheets ของร้าน</h2><div class="small muted">${esc('แอปร้านซ่อม / รับงาน')} ใช้ฟรี ข้อมูลทั้งหมดอยู่ใน Google ของร้านคุณเอง</div></div></div>
+    <ol class="cn-steps"><li><b>ติดตั้งโค้ดในชีตของร้าน</b><span>เปิด Google Sheets ใหม่ → ส่วนขยาย → Apps Script → วางโค้ด Code.gs → บันทึก</span></li>
+      <li><b>ตั้งค่าครั้งแรก</b><span>กลับมาที่ชีต รีเฟรช แล้วกดเมนูของแอป → ตั้งค่าครั้งแรก (สร้างบัญชีเจ้าของ)</span></li>
+      <li><b>ทำให้ใช้งานได้</b><span>การทำให้ใช้งานได้ → การทำให้ใช้งานได้รายการใหม่ → เว็บแอป · ดำเนินการเป็น: ฉัน · ผู้มีสิทธิ์เข้าถึง: ทุกคน → คัดลอกลิงก์เว็บแอป</span></li>
+      <li><b>วางลิงก์ที่นี่</b><span>ลิงก์ขึ้นต้นด้วย https://script.google.com/macros/s/ และลงท้ายด้วย /exec</span></li></ol>
+    <form class="form" id="cn-f" novalidate><div class="field"><label for="cn-u">ลิงก์เว็บแอป (/exec)</label><input class="input mono" id="cn-u" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="https://script.google.com/macros/s/.../exec"></div>
+      <div id="cn-e"></div><button class="btn btn-acc btn-block" type="submit">${icon('link')}เชื่อมต่อ</button></form>
+    <div class="cn-alt"><a class="btn btn-line" href="https://asuraphongapps54-prog.github.io/?install=repair" target="_blank" rel="noopener">${icon('doc')}เปิดคู่มือติดตั้งแบบมีรูป</a><a class="btn btn-line" href="demo.html">${icon('spark')}ลองเดโมก่อน</a></div>
+    <div class="small muted">ได้ลิงก์ร้านจากเจ้าของแล้ว? เปิดลิงก์นั้นได้เลย ไม่ต้องทำขั้นตอนนี้</div></section></div>`;
+  $('#cn-f').onsubmit=async e=>{e.preventDefault();const b=e.target.querySelector('button'),u=$('#cn-u').value.trim(),k=keyOf(u);
+    if(!k){$('#cn-e').innerHTML=errBox('ลิงก์ไม่ถูกต้อง ต้องขึ้นต้นด้วย https://script.google.com/macros/s/ และลงท้ายด้วย /exec');return}
+    busy(b,true,'กำลังตรวจลิงก์…');
+    try{const r=await fetch(u,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({fn:'apiInit',args:['']}),redirect:'follow'});const j=await r.json();
+      if(!j.ok||!j.data||!j.data.biz)throw new Error(j.error||'ลิงก์นี้ไม่ใช่ของแอปนี้');
+      if(j.data.biz.key!=='repair')throw new Error('ลิงก์นี้เป็นของ '+(j.data.biz.name||'แอปอื่น')+' ไม่ใช่ '+'แอปร้านซ่อม / รับงาน');
+      store.set(CONNECT_KEY,k);connectDone(j.data.biz.org)}
+    catch(err){$('#cn-e').innerHTML=errBox(/Failed to fetch|NetworkError|JSON/.test(err.message)?'เปิดลิงก์ไม่ได้ ตรวจว่าทำให้ใช้งานได้แบบ "ทุกคน" แล้ว และคัดลอกลิงก์ /exec ครบ':err.message);busy(b,false)}};
+}
+function connectDone(org){
+  const L=shopLink();
+  app.innerHTML=`<div class="narrow stack"><section class="panel done"><div class="tick">${icon('check')}</div><h2>เชื่อมกับ ${esc(org||'ร้านของคุณ')} แล้ว</h2>
+    <div class="small muted">ส่งลิงก์นี้ให้พนักงาน เปิดครั้งเดียวเครื่องจะจำไว้ กด "เพิ่มไปยังหน้าจอโฮม" ให้มีไอคอนเหมือนแอปได้</div>${linkBox(L)}
+    <button class="btn btn-acc btn-block" id="cn-go">เปิดแอป</button></section></div>`;
+  bindLinkBox();$('#cn-go').onclick=()=>{location.href=L}
+}
+/* กล่องลิงก์ร้าน: คัดลอก · ส่ง LINE · QR (ใช้ในหน้าเชื่อมต่อและในคู่มือ) */
+const linkBox=L=>L?`<div class="cn-link"><div class="mono small" id="cn-l">${esc(L)}</div><div class="cn-qr" id="cn-qr" aria-label="QR ลิงก์ร้าน"></div>
+  <div class="chips"><button type="button" class="btn btn-line btn-sm" id="cn-c">${icon('copy')}คัดลอกลิงก์</button><a class="btn btn-line btn-sm" target="_blank" rel="noopener" href="https://line.me/R/msg/text/?${encodeURIComponent('ลิงก์แอปของร้าน (แอปร้านซ่อม / รับงาน)\n'+L)}">${icon('chat')}ส่งทาง LINE</a></div></div>`:'<div class="alert warn small">หน้านี้ยังไม่ได้เชื่อมกับชีต</div>';
+function bindLinkBox(){const c=document.getElementById('cn-c'),q=document.getElementById('cn-qr'),L=shopLink();if(!L)return;
+  if(c)c.onclick=()=>navigator.clipboard.writeText(L).then(()=>toast('คัดลอกแล้ว')).catch(()=>toast('กดค้างที่ลิงก์แล้วเลือกคัดลอก'));
+  if(q)qrSvg(L).then(s=>{q.innerHTML=s}).catch(()=>{q.remove()})}
+function disconnect(){store.del(CONNECT_KEY);location.href=location.pathname}
+
 async function run(fn,...args){
   if(DEMO)return demoRun(fn,args);
-  if(!EXEC_RE.test(FIXED_API))throw new Error('ยังไม่ได้ใส่ลิงก์ /exec ที่ FIXED_API ในไฟล์ index.html (คัดลอกจาก Apps Script > การทำให้ใช้งานได้ > จัดการการทำให้ใช้งานได้ > URL เว็บแอป)');
+  if(!apiUrl())throw new Error('ยังไม่ได้เชื่อมแอปกับชีตของร้าน');
   let res;
-  try{res=await fetch(FIXED_API,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({fn,args}),redirect:'follow'})}
+  try{res=await fetch(apiUrl(),{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({fn,args}),redirect:'follow'})}
   catch(e){throw new Error('เชื่อมต่อไม่ได้ ตรวจอินเทอร์เน็ตแล้วลองใหม่')}
   let j;try{j=await res.json()}catch(e){throw new Error('ระบบตอบกลับผิดรูปแบบ ให้ผู้ดูแลตรวจการติดตั้ง Apps Script')}
   if(!j.ok){if(/เข้าสู่ระบบใหม่|กรุณาเข้าสู่ระบบ/.test(j.error)){clearTok();ME=null}throw new Error(j.error)}
@@ -720,6 +801,124 @@ $('#who').onclick=()=>{if(!ME)return;const m=modal(`<h2 style="padding-right:40p
   m.el.querySelector('[data-logout]').onclick=()=>{m.close();logout()}};
 
 const DAS="",demoReady=async()=>{},demoRun=null,paintDemo=()=>{},demoMark=()=>{},demoTrack=null;
+/* ไอคอนเพิ่มเติม (เส้น 24×24) ใช้ร่วมทุกแอป */
+Object.entries({
+chev:'<path d="M9 6l6 6-6 6"/>',
+calendar:'<rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/>',
+clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+qr:'<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM20 14v.01M14 20h.01M17 20h4v-3"/>',
+tag:'<path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.5"/>',
+bell:'<path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>',
+cart:'<circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.7 12.4a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L21 7H6"/>',
+users:'<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M21.5 20a6.5 6.5 0 0 0-4-6"/>',
+list:'<path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"/>',
+x:'<path d="M18 6 6 18M6 6l12 12"/>',
+minus:'<path d="M5 12h14"/>',
+cash:'<rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 12h.01M18 12h.01"/>',
+edit:'<path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/>',
+refresh:'<path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/>',
+print:'<path d="M6 9V2h12v7"/><rect x="2" y="9" width="20" height="9" rx="2"/><path d="M6 14h12v8H6z"/>',
+star:'<path d="M12 3l2.8 5.8 6.2.9-4.5 4.4 1.1 6.2L12 17.3 6.4 20.3l1.1-6.2L3 9.7l6.2-.9z"/>',
+tv:'<rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/>',
+ticket:'<path d="M3 8a2 2 0 0 0 2-2h14a2 2 0 0 0 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 0-2 2H5a2 2 0 0 0-2-2v-2a2 2 0 0 0 0-4z"/><path d="M14 6v12" stroke-dasharray="2 2.5"/>',
+scissors:'<circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.1 15.9M14.5 14.5 20 20M8.1 8.1 12 12"/>',
+food:'<path d="M7 3v8a2 2 0 0 0 2 2v8M11 3v8M7 7h4M17 3c-1.7 0-3 2-3 5s1.3 4 3 4v9"/>',
+cup:'<path d="M4 8h13v5a6 6 0 0 1-6 6h-1a6 6 0 0 1-6-6z"/><path d="M17 10h1.5a2.5 2.5 0 0 1 0 5H17M8 2v3M12 2v3"/>',
+table:'<path d="M3 9h18M5 9l-1 11M19 9l1 11M8 9v6h8V9"/>',
+chef:'<path d="M6 13.9a4 4 0 0 1 1.5-7.7 5 5 0 0 1 9 0A4 4 0 0 1 18 13.9V20H6z"/><path d="M6 17h12"/>',
+fire:'<path d="M12 22c4 0 7-2.7 7-7 0-4-3-6-4-10-2 2-3 4-3 6-1-1-2-2-2-4-3 2-5 5-5 8 0 4.3 3 7 7 7z"/>',
+pause:'<rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/>',
+play:'<path d="M7 5l12 7-12 7z"/>',
+moon:'<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>'
+}).forEach(([k,v])=>{if(!P[k])P[k]=v});
+/* คู่มือแอปร้านซ่อม / รับงาน (เปิดในแอปผ่านน้องอาสา) */
+const MANUAL={app:'แอปร้านซ่อม',guide:'https://asuraphongapps54-prog.github.io/?install=repair',
+sections:[
+ {id:'start',t:'เริ่มใช้งานครั้งแรก (เจ้าของร้าน)',ic:'gear',who:'admin',steps:[
+  'กด "เจ้าของร้าน" → "ตั้งค่าร้าน" → เลือกประเภทร้าน เช่น ซ่อมมือถือ อู่รถ ร้านแอร์ ร้านแก้ผ้า',
+  'กรอกชื่อร้าน ที่อยู่ เบอร์ และเงื่อนไขการรับงาน (พิมพ์อยู่ท้ายใบรับงาน) แล้วกดบันทึก',
+  'ส่งลิงก์ร้านให้ช่างและหน้าร้าน (น้องอาสา → แท็บ "ลิงก์ร้าน") ให้กดสมัคร แล้วเจ้าของกดอนุมัติที่ "เจ้าของร้าน → ผู้ใช้"',
+  'ตั้งตำแหน่งให้แต่ละคน: รับงาน ตรวจเช็ก เสนอราคา ซ่อม'],
+  tip:'ฉบับฟรีรับงานได้ 60 งานต่อเดือน ผู้ใช้ 3 คน'},
+ {id:'recv',t:'รับงานใหม่',ic:'plus',who:'all',steps:[
+  'หน้าแรก กด "รับใหม่"',
+  'ใส่ชื่อและเบอร์ลูกค้า (ลูกค้าเก่าพิมพ์เบอร์แล้วแอปดึงชื่อให้)',
+  'เลือกชนิดเครื่อง ยี่ห้อ รุ่น ใส่อาการเสีย อุปกรณ์ที่ลูกค้าฝากมา และถ่ายรูปสภาพก่อนซ่อมได้',
+  'กด "บันทึก" ได้เลขที่งานและใบรับงาน พิมพ์ A4 หรือกระดาษม้วนได้',
+  'กด "ส่งทาง LINE" ส่งลิงก์ติดตามงานให้ลูกค้า ลูกค้าเปิดดูสถานะได้เองไม่ต้องโทรถาม'],
+  tip:'ห้ามขอรหัสปลดล็อกเครื่องหรือรหัส ATM ของลูกค้า ถ้าจำเป็นให้ลูกค้าปลดล็อกเองต่อหน้า'},
+ {id:'flow',t:'อัปเดตสถานะงาน',ic:'wrench',who:'all',steps:[
+  'เปิด "งานซ่อม" หรือ "งานที่ฉันดูแลอยู่" ในหน้าแรก',
+  'กดที่งาน → เลือกสถานะถัดไป: ตรวจเช็ก → เสนอราคา → กำลังซ่อม → ซ่อมเสร็จ → ส่งคืนแล้ว',
+  'ใส่หมายเหตุหรือรูปหลังซ่อมได้ทุกขั้น ลูกค้าเห็นสถานะในลิงก์ติดตามทันที',
+  'ซ่อมไม่ได้ / ลูกค้าไม่ซ่อม เลือกสถานะนั้นแล้วคืนเครื่อง']},
+ {id:'pay',t:'ส่งคืน · รับเงิน · ใบเสร็จ',ic:'cash',who:'all',steps:[
+  'งานที่ "ซ่อมเสร็จ" กด "ส่งคืน / รับเงิน"',
+  'ตรวจค่าแรงและค่าอะไหล่ ใส่ส่วนลดได้ เลือกวิธีจ่าย',
+  'พิมพ์ใบเสร็จ A4 หรือกระดาษม้วน 80 / 58 มม.']},
+ {id:'quote',t:'ใบเสนอราคา · ประกันงานซ่อม (โปร)',ic:'doc',who:'all',steps:[
+  'ในงาน กด "ใบเสนอราคา" ใส่รายการค่าแรงและอะไหล่ ส่งให้ลูกค้ากดอนุมัติในลิงก์ติดตามได้',
+  'ตอนส่งคืน ใส่จำนวนวันรับประกัน แอปพิมพ์วันหมดประกันในใบเสร็จ',
+  'ลูกค้ากลับมาเคลม ค้นด้วยเบอร์ แอปบอกว่ายังอยู่ในประกันไหม']},
+ {id:'parts',t:'สต็อกอะไหล่ (โปร)',ic:'box',who:'all',steps:[
+  'หน้าแรก กด "สต็อกอะไหล่" → เพิ่มอะไหล่ ใส่ทุน ราคาขาย จำนวน',
+  'ในงานซ่อม เลือกอะไหล่ที่ใช้ สต็อกถูกตัดให้อัตโนมัติ',
+  'อะไหล่ใกล้หมดขึ้นเตือนในหน้าแรก']},
+ {id:'report',t:'ดูรายรับ',ic:'chart',who:'admin',steps:[
+  'เจ้าของร้าน → ภาพรวม: งานค้าง งานเสร็จ ยอดรับเงิน',
+  'รายรับ (โปร): สรุปรายเดือน แยกค่าแรง/อะไหล่ และดาวน์โหลด CSV']},
+ {id:'data',t:'ข้อมูลอยู่ที่ไหน · สำรองข้อมูล',ic:'shield',who:'admin',steps:[
+  'ข้อมูลทั้งหมดอยู่ใน Google Sheets ของร้านเอง รูปอยู่ใน Google Drive ของร้าน',
+  'อย่าแก้หรือลบหัวคอลัมน์ในชีต ถ้าเผลอลบ ให้กดเมนูของแอป → ตั้งค่าครั้งแรก อีกครั้ง']}
+],
+faq:[
+ ['ลูกค้าทำใบรับงานหาย','ค้นจากเบอร์โทรใน "ลูกค้า" หรือ "งานซ่อม" แล้วพิมพ์ใบรับงานซ้ำ หรือส่งลิงก์ติดตามใหม่'],
+ ['ลูกค้าไม่มารับเครื่อง','เปิดงาน กด "ส่งทาง LINE" เตือนลูกค้า งานที่ซ่อมเสร็จนานแล้วจะขึ้นในหน้าแรก'],
+ ['ช่างหลายคน แบ่งงานอย่างไร','กดที่งาน → เปลี่ยน "ผู้รับผิดชอบ" ช่างแต่ละคนเห็นงานของตัวเองในหน้าแรก'],
+ ['ลืมรหัสผ่าน','กด "ลืมรหัสผ่าน" ที่หน้าเข้าสู่ระบบ แล้วแจ้งเจ้าของร้าน เจ้าของออกรหัสชั่วคราวให้ที่ เจ้าของร้าน → ผู้ใช้'],
+ ['แพ็กเกจฟรีได้แค่ไหน','รับงาน 60 งานต่อเดือน ผู้ใช้ 3 คน ถ้าอยากเพิ่มจำนวน (แพ็กเกจโปรไม่ล็อกจำนวน ใช้งานลื่นในร้านไม่เกิน ประมาณ 600 งาน/เดือน) ใบเสนอราคา ประกัน สต็อกอะไหล่ และรายรับ อัปเกรดโปร 299 บาท จ่ายครั้งเดียว'],
+ ['เปลี่ยนเครื่อง / เปลี่ยนมือถือ','เปิดลิงก์ร้านเดิมในเครื่องใหม่ แล้วเข้าสู่ระบบ ข้อมูลอยู่ในชีต ไม่ได้อยู่ในมือถือ'],
+ ['อยากให้แอปมีเมนูเพิ่ม','ซื้อแพ็กเกจปรับแต่ง 699 บาท (แก้ได้ 2 ครั้ง) หรือ 1,200 บาท (4 ครั้ง) ทัก LINE @352ismlf']
+]};
+
+/* ===== ผู้ช่วย "น้องอาสา" + คู่มือแบบป๊อปอัป + คำถามที่พบบ่อยแบบปุ่ม (ไม่ใช้ AI) · ใช้ร่วมทุกแอป =====
+ * ต้องมีก่อนไฟล์นี้: MANUAL = { app, guide, sections:[{id,t,ic,who:'all'|'admin'|'staff',steps:[...],tip}], faq:[[ถาม, ตอบ, who?]] }
+ * และ esc, icon, modal, ME (ผู้ใช้ที่ล็อกอิน) · ฟังก์ชัน shopLink / linkBox / bindLinkBox จาก connect.js (ถ้ามี) */
+const BOT_NAME='น้องอาสา';
+const botSvg=(sz)=>`<svg class="bot" width="${sz||44}" height="${sz||44}" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="bg-b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6d6af0"/><stop offset="1" stop-color="#c86bd8"/></linearGradient></defs>
+  <line x1="32" y1="6" x2="32" y2="14" stroke="#6d6af0" stroke-width="3" stroke-linecap="round"/><circle cx="32" cy="6" r="4" fill="#f5c26b"/>
+  <rect x="8" y="14" width="48" height="40" rx="16" fill="url(#bg-b)"/><rect x="14" y="21" width="36" height="24" rx="11" fill="#fff"/>
+  <circle cx="25" cy="32" r="4" fill="#2e2e9a"/><circle cx="39" cy="32" r="4" fill="#2e2e9a"/><circle cx="26.5" cy="30.5" r="1.3" fill="#fff"/><circle cx="40.5" cy="30.5" r="1.3" fill="#fff"/>
+  <path d="M27 39q5 4 10 0" stroke="#2e2e9a" stroke-width="2.6" fill="none" stroke-linecap="round"/><circle cx="18" cy="40" r="2.6" fill="#ffb3cf"/><circle cx="46" cy="40" r="2.6" fill="#ffb3cf"/>
+  <rect x="4" y="28" width="6" height="12" rx="3" fill="#8b7cf6"/><rect x="54" y="28" width="6" height="12" rx="3" fill="#8b7cf6"/></svg>`;
+const whoOk=w=>!w||w==='all'||!!ME&&(w==='admin'?ME.role==='admin':w==='staff'?ME.role!=='admin'&&ME.role!=='tenant':ME.role===w);
+function helpOpen(start){
+  const M=typeof MANUAL!=='undefined'?MANUAL:{sections:[],faq:[]},secs=M.sections.filter(s=>whoOk(s.who)),faq=M.faq.filter(f=>whoOk(f[2]));
+  const hello=ME?`สวัสดีครับ คุณ${esc(ME.nick||ME.first||'')} มีอะไรให้${BOT_NAME}ช่วยไหมครับ`:`สวัสดีครับ ${BOT_NAME}ช่วยแนะนำการใช้งานได้ครับ`;
+  const m=modal(`<div class="hp"><div class="hp-top">${botSvg(56)}<div class="hp-say" id="hp-say">${hello}</div></div>
+    <div class="tabs" role="tablist"><button role="tab" data-ht="man" aria-selected="true">${icon('doc')}คู่มือ</button><button role="tab" data-ht="faq" aria-selected="false">${icon('chat')}ถามบ่อย</button>${ME&&ME.role==='admin'&&typeof shopLink==='function'?`<button role="tab" data-ht="lnk" aria-selected="false">${icon('link')}ลิงก์ร้าน</button>`:''}</div>
+    <div id="hp-b" class="stack"></div>${M.guide?`<a class="btn btn-line btn-block" href="${esc(M.guide)}" target="_blank" rel="noopener">${icon('doc')}เปิดคู่มือฉบับเต็ม (มีรูปหน้าจอ)</a>`:''}</div>`);
+  const say=t=>{const s=m.el.querySelector('#hp-say');s.innerHTML=t;s.classList.remove('pop');void s.offsetWidth;s.classList.add('pop')},b=()=>m.el.querySelector('#hp-b');
+  const tab=k=>{m.el.querySelectorAll('[data-ht]').forEach(x=>x.setAttribute('aria-selected',x.dataset.ht===k));
+    if(k==='man'){b().innerHTML=`<div class="hp-list">${secs.map((s,i)=>`<button type="button" class="hp-q" data-s="${i}">${icon(s.ic||'doc')}<span>${esc(s.t)}</span>${icon('chev')}</button>`).join('')||'<div class="empty">ยังไม่มีคู่มือ</div>'}</div>`;
+      b().querySelectorAll('[data-s]').forEach(x=>x.onclick=()=>sec(secs[+x.dataset.s]));say(hello)}
+    if(k==='faq'){b().innerHTML=`<div class="hp-list">${faq.map((f,i)=>`<button type="button" class="hp-q" data-f="${i}">${icon('chat')}<span>${esc(f[0])}</span></button>`).join('')}</div>`;
+      b().querySelectorAll('[data-f]').forEach(x=>x.onclick=()=>{say(esc(faq[+x.dataset.f][1]));b().querySelectorAll('[data-f]').forEach(y=>y.setAttribute('aria-pressed',y===x))});say('เลือกคำถามด้านล่างได้เลยครับ')}
+    if(k==='lnk'){b().innerHTML=`<div class="small">ลิงก์นี้ใช้ได้ทุกคนในร้าน ส่งให้พนักงานเปิดครั้งเดียว เครื่องจะจำไว้</div>${linkBox(shopLink())}
+      <div class="small muted">ย้ายไปใช้ชีตใหม่? <button type="button" class="linkbtn" id="hp-dc">เลิกเชื่อมเครื่องนี้</button></div>`;bindLinkBox();
+      const dc=m.el.querySelector('#hp-dc');if(dc)dc.onclick=()=>{if(confirm('เลิกเชื่อมเครื่องนี้กับชีตของร้าน? ข้อมูลในชีตไม่หาย'))disconnect()};say('ส่งลิงก์ร้านให้พนักงานได้จากตรงนี้ครับ')}};
+  const sec=s=>{b().innerHTML=`<button type="button" class="linkbtn" id="hp-bk">${icon('back')}กลับไปหัวข้อคู่มือ</button><h3 class="hp-h">${icon(s.ic||'doc')}${esc(s.t)}</h3>
+    <ol class="hp-steps">${s.steps.map(x=>`<li>${esc(x)}</li>`).join('')}</ol>${s.tip?`<div class="alert info small">${icon('spark','pico')} ${esc(s.tip)}</div>`:''}`;
+    m.el.querySelector('#hp-bk').onclick=()=>tab('man');say(`ทำตามทีละข้อได้เลยครับ`)};
+  m.el.querySelectorAll('[data-ht]').forEach(x=>x.onclick=()=>tab(x.dataset.ht));
+  if(start&&start.sec){const s=secs.find(x=>x.id===start.sec);tab('man');if(s)sec(s)}else tab(start&&start.tab||'man');
+}
+/* ปุ่มลอยมุมขวาล่าง (ซ่อนในหน้าลูกค้า / หน้าสาธารณะ) */
+(function(){if(document.getElementById('helpfab'))return;const f=document.createElement('button');f.id='helpfab';f.className='helpfab';f.type='button';
+  f.setAttribute('aria-label','คู่มือและคำถามที่พบบ่อย ('+BOT_NAME+')');f.innerHTML=botSvg(46)+'<span>คู่มือ</span>';f.onclick=()=>helpOpen();document.body.appendChild(f)})();
+document.addEventListener('click',e=>{const t=e.target.closest&&e.target.closest('[data-help]');if(t){e.preventDefault();helpOpen(t.dataset.help?{sec:t.dataset.help}:null)}});
+const helpRow=()=>`<button type="button" class="helprow" data-help>${botSvg(40)}<span><b>คู่มือการใช้งาน</b><span class="small muted">${BOT_NAME}พาดูทีละขั้น · คำถามที่พบบ่อย · ลิงก์ร้าน</span></span>${icon('chev')}</button>`;
+
 /* ===================== แอปร้านซ่อม: หน้าจอ ===================== */
 const ROLE_TH={admin:'เจ้าของร้าน',staff:'พนักงาน'};
 const can=f=>!!ME&&(ME.role==='admin'||(ME.can||[]).includes(f));
@@ -731,14 +930,14 @@ const PRO_INFO={parts:['สต็อกอะไหล่','ตัดสต็�
   warranty:['ใบรับประกัน + เคลม','นับวันรับประกัน เปิดงานเคลมจากงานเดิม','shield'],income:['รายงานรายรับ','สรุปรายเดือน ค่าแรง ค่าอะไหล่ กำไรขั้นต้น','chart']};
 const locked=id=>(BIZ.locked||[]).some(m=>m.id===id);
 const fmtPh=s=>String(s||'').replace(/^(\d{3})(\d{3})(\d{3,4})$/,'$1-$2-$3');
-const trackUrl=t=>location.origin+location.pathname.replace(/[^/]*$/,'')+(DEMO?'demo.html':'')+'?t='+t;
+const trackUrl=t=>!DEMO&&shopLink()?shopLink()+'&t='+t:location.origin+location.pathname.replace(/[^/]*$/,'')+(DEMO?'demo.html':'')+'?t='+t;
 const isoNow=(k)=>{const d=new Date();d.setDate(d.getDate()+(k||0));return isoD(d)};
 
 /* ส่งข้อความหาลูกค้า: เปิด LINE ให้เลือกแชต / SMS / คัดลอก (ไม่มีค่าใช้จ่าย ไม่ต้องตั้งค่าอะไร) */
 function custMsg(j,kind){const q=j.quote,due=Math.max(0,(j.total||0)-((j.dep||{}).amt||0)),link=trackUrl(j.tok),org=BIZ.org;
   const head=`${org}\nงานซ่อม ${j.id} · ${j.model}`;
-  if(kind==='ready')return `${head}\nซ่อมเสร็จแล้ว มารับเครื่องได้เลยครับ${due?`\nยอดชำระ ${baht(due)} บาท`:''}${(BIZ.shop||{}).hours?`\nร้านเปิด ${BIZ.shop.hours}`:''}\nรายละเอียด: ${link}`;
-  if(kind==='remind')return `${head}\nเครื่องของคุณซ่อมเสร็จตั้งแต่ ${j.readyTs?isoTH(isoD(new Date(j.readyTs))):'-'} ยังไม่ได้มารับ\nรบกวนมารับเครื่องที่ร้านด้วยครับ${due?` (ยอดชำระ ${baht(due)} บาท)`:''}\nตามเงื่อนไขการรับซ่อม ร้านเก็บเครื่องไว้ให้ระยะหนึ่งเท่านั้น\nรายละเอียด: ${link}`;
+  if(kind==='ready')return `${head}\nซ่อมเสร็จแล้ว มารับ${IT()}ได้เลยครับ${due?`\nยอดชำระ ${baht(due)} บาท`:''}${(BIZ.shop||{}).hours?`\nร้านเปิด ${BIZ.shop.hours}`:''}\nรายละเอียด: ${link}`;
+  if(kind==='remind')return `${head}\n${IT()}ของคุณซ่อมเสร็จตั้งแต่ ${j.readyTs?isoTH(isoD(new Date(j.readyTs))):'-'} ยังไม่ได้มารับ\nรบกวนมารับ${IT()}ที่ร้านด้วยครับ${due?` (ยอดชำระ ${baht(due)} บาท)`:''}\nตามเงื่อนไขการรับซ่อม ร้านเก็บ${IT()}ไว้ให้ระยะหนึ่งเท่านั้น\nรายละเอียด: ${link}`;
   if(kind==='quote')return `${head}\nราคาซ่อม ${baht(q.total)} บาท รอคุณอนุมัติ\nกดดูรายการและอนุมัติได้ที่: ${link}`;
   return `${head}\nสถานะ: ${BIZ.st[j.st]}\nดูสถานะ: ${link}`}
 function sendBox(j,kind,title){const t=custMsg(j,kind);
@@ -766,8 +965,9 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden)pollAlerts
 function proInfo(){modal(`<div style="padding-right:40px"><div class="small muted">${icon('spark','pico')} แพ็กเกจโปร</div><h2>ปลดล็อกร้านซ่อมเต็มระบบ</h2></div>
   <ul class="prolist">${Object.keys(PRO_INFO).map(k=>`<li>${icon(PRO_INFO[k][2])}<div><b>${PRO_INFO[k][0]}</b><div class="small muted">${PRO_INFO[k][1]}</div></div></li>`).join('')}
   <li>${icon('qr')}<div><b>QR พร้อมเพย์ในลิงก์ลูกค้า</b><div class="small muted">ลูกค้าสแกนจ่ายตามยอดได้เลย</div></div></li>
-  <li>${icon('user')}<div><b>งานและพนักงานไม่จำกัด</b><div class="small muted">แพ็กเกจฟรี ${BIZ.freeJobs} งานต่อเดือน ผู้ใช้ ${BIZ.freeStaff} คน</div></div></li></ul>
-  <div class="alert info">แพ็กเกจโปร 359 บาท ซื้อขาด จ่ายครั้งเดียว · ข้อมูลเดิมอยู่ครบ ไม่ต้องติดตั้งใหม่</div>${supportHtml()}`)}
+  <li>${icon('user')}<div><b>ไม่ล็อกจำนวนงานและพนักงาน</b><div class="small muted">แพ็กเกจฟรี ${BIZ.freeJobs} งานต่อเดือน ผู้ใช้ ${BIZ.freeStaff} คน · ใช้งานลื่นในขนาดร้านไม่เกิน ~600 งาน/เดือน ใหญ่กว่านี้หรือหลายสาขา แนะนำแพ็กเกจอัลติเมต</div></div></li>
+  <li>${icon('gear')}<div><b>อยากปรับให้เข้ากับร้าน? มีแพ็กเกจปรับแต่ง</b><div class="small muted">699 บาท แก้ได้ 2 ครั้ง (ก่อนใช้งานจริง + หลังลองใช้จริง) · 1,200 บาท แก้ได้ 4 ครั้ง · ส่งบรีฟสิ่งที่อยากแก้ทาง LINE</div></div></li></ul>
+  <div class="alert info">แพ็กเกจโปร 299 บาท ซื้อขาด จ่ายครั้งเดียว · 1 รหัส = 1 กิจการ (1 แอป + 1 ประเภทธุรกิจที่เลือกตอนซื้อ) · ใช้แม่แบบตามที่เห็นในเดโม · ข้อมูลเดิมอยู่ครบ ไม่ต้องติดตั้งใหม่</div>${supportHtml()}`)}
 
 /* ---------- หน้าแรก ---------- */
 function vHome(){
@@ -776,19 +976,19 @@ function vHome(){
     <div class="hello"><div><div class="date">วัน${TH_DAY[d.getDay()]}ที่ ${d.getDate()} ${TH_MON[d.getMonth()]} ${d.getFullYear()+543}</div>
       <h2>${hr<12?'สวัสดีตอนเช้า':hr<17?'สวัสดีตอนบ่าย':'สวัสดีตอนเย็น'} คุณ${esc(ME.nick||ME.first)}</h2></div></div>
     <div id="h-al"></div>
-    ${can('intake')?`<button class="btn btn-acc big-act" id="go-new">${icon('plus')}รับเครื่องใหม่</button>`:''}
+    ${can('intake')?`<button class="btn btn-acc big-act" id="go-new">${icon('plus')}รับ${IT()}ใหม่</button>`:''}
     <div class="kpis" id="hk">${'<div class="sk"></div>'.repeat(4)}</div>
     <div class="tiles" id="tiles"></div>
-    <section class="panel"><h3>งานที่ฉันดูแลอยู่</h3><div class="list" id="mine">${loadingList}</div></section>${logoutBtn()}</div>`;
+    <section class="panel"><h3>งานที่ฉันดูแลอยู่</h3><div class="list" id="mine">${loadingList}</div></section>${helpRow()}${logoutBtn()}</div>`;
   const gn=$('#go-new');if(gn)gn.onclick=()=>go('new');
   run('apiHome',tok()).then(h=>{
     ALERTS=h.alerts||[];paintAlerts();
     $('#h-al').innerHTML=(ALERTS.length?`<section class="panel alertbox"><h3>${icon('bell','pico')} ลูกค้าตอบกลับ (${ALERTS.length})</h3><div class="list">${ALERTS.map(a=>`<div class="item click" data-job="${esc(a.id)}"><div class="item-main"><b>${esc(a.cust)} · ${esc(a.model)}</b>
       <div class="item-sub"><b style="color:${a.t==='ok'?'var(--ok)':a.t==='no'?'var(--bad)':'var(--warn)'}">${esc(ALERT_TH[a.t]||'')}</b>${a.note?' · '+esc(a.note):''}</div><div class="item-sub">${esc(a.at)} · กดเพื่อเปิดงาน</div></div><span class="tagno">${esc(a.id)}</span></div>`).join('')}</div></section>`:'')
-      +(h.unclaimed?`<button class="alert warn unclbtn" id="h-unc">${icon('box','pico')} เครื่องซ่อมเสร็จแล้วค้างร้านเกิน ${h.unclaimDays} วัน <b>${h.unclaimed} เครื่อง</b> · กดเพื่อส่งข้อความทวง</button>`:'');
+      +(h.unclaimed?`<button class="alert warn unclbtn" id="h-unc">${icon('box','pico')} ${IT()}ซ่อมเสร็จแล้วค้างร้านเกิน ${h.unclaimDays} วัน <b>${h.unclaimed} ${IT()}</b> · กดเพื่อส่งข้อความทวง</button>`:'');
     bindItems($('#h-al'));{const u=$('#h-unc');if(u)u.onclick=()=>go('jobs',{st:'long'})}
     const k=(l,n,sub,st,cls)=>`<button class="kpi kbtn${cls?' '+cls:''}" data-st="${st||''}"><div class="kpi-h">${l}</div><div class="kpi-n"><div><b data-cu="${n}">${n}</b><span>${sub}</span></div></div></button>`;
-    $('#hk').innerHTML=k('งานค้างทั้งหมด',h.active,'งาน','')+k('พร้อมรับเครื่อง',h.by.ready,'รอลูกค้ามารับ','ready')+k('รออนุมัติราคา',h.by.quote,'งาน','quote')+k('เลยวันนัดรับ',h.late,'งาน','late',h.late?'bad':'');
+    $('#hk').innerHTML=k('งานค้างทั้งหมด',h.active,'งาน','')+k(`พร้อมรับ${IT()}`,h.by.ready,'รอลูกค้ามารับ','ready')+k('รออนุมัติราคา',h.by.quote,'งาน','quote')+k('เลยวันนัดรับ',h.late,'งาน','late',h.late?'bad':'');
     app.querySelectorAll('.kbtn').forEach(b=>b.onclick=()=>go('jobs',{st:b.dataset.st}));
     const T=[['jobs','งานซ่อม','ค้นหา ติดตาม อัปเดตสถานะ','wrench',h.active+' ค้าง'],['cust','ลูกค้า','ประวัติงานตามเบอร์โทร','user',''],
       ['parts','สต็อกอะไหล่','รับของเข้า ตัดสต็อก ของใกล้หมด','box',h.lowParts?h.lowParts+' ใกล้หมด':''],['income','รายรับ','สรุปรายเดือน ดาวน์โหลด CSV','chart','']];
@@ -811,8 +1011,8 @@ const bindItems=el=>el.querySelectorAll('[data-job]').forEach(x=>x.onclick=()=>g
 /* ---------- รายการงาน ---------- */
 function vJobs(){
   let st=view.st||'',q='';
-  app.innerHTML=`<div class="stack">${backHead('งานซ่อม','ค้นจากเลขงาน ชื่อ เบอร์ รุ่น เลขเครื่อง','wrench')}
-    ${can('intake')?`<button class="btn btn-acc big-act" id="go-new">${icon('plus')}รับเครื่องใหม่</button>`:''}
+  app.innerHTML=`<div class="stack">${backHead('งานซ่อม',`ค้นจากเลขงาน ชื่อ เบอร์ รุ่น เลข${IT()}`,'wrench')}
+    ${can('intake')?`<button class="btn btn-acc big-act" id="go-new">${icon('plus')}รับ${IT()}ใหม่</button>`:''}
     <section class="panel"><div class="field"><input class="input" id="jq" placeholder="ค้นหา… เช่น 0812 หรือ iPhone" aria-label="ค้นหางาน" autocomplete="off"></div>
       <div class="chips scrollx" id="jst"></div><div class="list" id="jl">${loadingList}</div></section></div>`;
   const gn=$('#go-new');if(gn)gn.onclick=()=>go('new');
@@ -827,36 +1027,36 @@ function vJobs(){
 }
 
 /* ---------- รับเครื่องใหม่ ---------- */
-const ACC=['สายชาร์จ','หัวชาร์จ','เคส','กล่อง','ซิมการ์ด','เมมโมรีการ์ด','ปากกา','กระเป๋า'];
-const PROB={'มือถือ':['จอแตก','ทัชไม่ติด','แบตเสื่อม','ชาร์จไม่เข้า','ไม่มีเสียง','กล้องไม่ชัด','ตกน้ำ','เปิดไม่ติด'],'โน้ตบุ๊ก':['เปิดไม่ติด','เครื่องร้อน','ช้า ค้าง','จอไม่ติด','คีย์บอร์ดเสีย','ลงโปรแกรม'],
-  'คอมพิวเตอร์':['เปิดไม่ติด','ช้า ค้าง','ลงวินโดวส์','จอฟ้า'],'แอร์':['ไม่เย็น','น้ำหยด','มีเสียงดัง','ล้างแอร์'],'แท็บเล็ต':['จอแตก','แบตเสื่อม','ชาร์จไม่เข้า']};
-const SPOTS=['ด้านหน้า','ด้านหลัง','ขอบ / มุม','เปิดเครื่อง'];
+const W=()=>BIZ.words||{it:'\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07',serial:'IMEI / SN',extra:'',modelPh:'',unlock:true};
+const IT=()=>W().it||'\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07';
+const probsOf=t=>{const p=BIZ.probs||{};return [...new Set((p[t]||[]).concat(p['*']||[]))]};
 function vNew(){
   if(!can('intake'))return go('home');
-  const types=BIZ.devTypes||['มือถือ'],claim=view.claim||null;let type=claim?claim.type:types[0];
-  app.innerHTML=`<div class="stack">${backHead(claim?'เปิดงานเคลมประกัน':'รับเครื่องใหม่',claim?'จากงาน '+claim.id:'ถ่ายรูปสภาพเครื่องก่อนรับทุกครั้ง','plus')}
+  const types=BIZ.devTypes||['อื่น ๆ'],ACC=BIZ.acc||[],SPOTS=BIZ.spots||['ด้านหน้า','ด้านหลัง'],claim=view.claim||null;let type=claim?claim.type:types[0];
+  app.innerHTML=`<div class="stack">${backHead(claim?'เปิดงานเคลมประกัน':`รับ${IT()}ใหม่`,claim?'จากงาน '+claim.id:`ถ่ายรูปสภาพ${IT()}ก่อนรับทุกครั้ง`,'plus')}
     <section class="panel"><form class="form" id="nf" novalidate>
       <div class="field"><label for="n-ph">เบอร์ลูกค้า</label><input class="input mono" id="n-ph" inputmode="tel" autocomplete="off" placeholder="08x-xxx-xxxx" value="${esc(claim?claim.phone:'')}"><div id="n-hist" class="small"></div></div>
       <div class="field"><label for="n-c">ชื่อลูกค้า</label><input class="input" id="n-c" autocomplete="off" maxlength="80" value="${esc(claim?claim.cust:'')}"></div>
-      <div class="field"><span class="lab">ประเภทเครื่อง</span><div class="chips" id="n-t">${types.map(t=>`<button type="button" class="chip" data-t="${esc(t)}" aria-pressed="${t===type}">${esc(t)}</button>`).join('')}</div></div>
-      <div class="row2"><div class="field"><label for="n-m">ยี่ห้อ / รุ่น</label><input class="input" id="n-m" maxlength="80" placeholder="เช่น iPhone 13" value="${esc(claim?claim.model:'')}"></div>
-        <div class="field"><label for="n-s">เลขเครื่อง IMEI / SN <span class="opt">(ถ้ามี)</span></label><input class="input mono" id="n-s" maxlength="40" value="${esc(claim?claim.serial||'':'')}"></div></div>
-      <div class="field"><label for="n-p">${claim?'อาการที่กลับมาเสีย':'อาการที่ลูกค้าแจ้ง'}</label><textarea class="input" id="n-p" rows="2" maxlength="500"></textarea><div class="chips" id="n-pq"></div></div>
+      <div class="field"><span class="lab">ประเภท${IT()}</span><div class="chips" id="n-t">${types.map(t=>`<button type="button" class="chip" data-t="${esc(t)}" aria-pressed="${t===type}">${esc(t)}</button>`).join('')}</div></div>
+      <div class="row2"><div class="field"><label for="n-m">ยี่ห้อ / รุ่น</label><input class="input" id="n-m" maxlength="80" placeholder="${esc(W().modelPh||'')}" value="${esc(claim?claim.model:'')}"></div>
+        <div class="field"><label for="n-s">${esc(W().serial)} <span class="opt">(ถ้ามี)</span></label><input class="input mono" id="n-s" maxlength="40" value="${esc(claim?claim.serial||'':'')}"></div></div>
+      ${W().extra?`<div class="field"><label for="n-x">${esc(W().extra)}</label><input class="input" id="n-x" maxlength="120"></div>`:''}
+      <div class="field"><label for="n-p">${claim?'อาการที่กลับมาเสีย':esc(W().prob||'อาการที่ลูกค้าแจ้ง')}</label><textarea class="input" id="n-p" rows="2" maxlength="500"></textarea><div class="chips" id="n-pq"></div></div>
       <div class="field"><span class="lab">ของที่ลูกค้าให้มาด้วย</span><div class="chips" id="n-a">${ACC.map(a=>`<button type="button" class="chip" data-a="${esc(a)}" aria-pressed="false">${esc(a)}</button>`).join('')}</div></div>
-      <div class="field"><span class="lab">รูปสภาพเครื่องตอนรับ <span class="opt">(กันลูกค้าเถียงเรื่องรอยเดิม)</span></span><div class="spots" id="n-ph2"></div></div>
+      <div class="field"><span class="lab">รูปสภาพ${IT()}ตอนรับ <span class="opt">(กันลูกค้าเถียงเรื่องรอยเดิม)</span></span><div class="spots" id="n-ph2"></div></div>
       <div class="field"><label for="n-d">นัดรับ</label><input class="input" type="date" id="n-d" value="${isoNow(3)}"><div class="chips">${[[0,'วันนี้'],[1,'พรุ่งนี้'],[3,'3 วัน'],[7,'7 วัน']].map(([k,l])=>`<button type="button" class="chip" data-d="${k}" aria-pressed="${k===3}">${l}</button>`).join('')}</div></div>
       <div class="field"><label for="n-dep">รับมัดจำ (บาท) <span class="opt">(ถ้ามี เช่น ค่าอะไหล่ที่ต้องสั่ง)</span></label><input class="input mono" id="n-dep" inputmode="decimal" placeholder="0">
         <div class="chips" id="n-dm" hidden>${(BIZ.payMethods||[]).map((m,i)=>`<button type="button" class="chip" data-dm="${esc(m)}" aria-pressed="${i===0}">${esc(m)}</button>`).join('')}</div></div>
       <div class="field"><label for="n-n">หมายเหตุภายในร้าน <span class="opt">(ลูกค้าไม่เห็น)</span></label><input class="input" id="n-n" maxlength="300"></div>
-      <div class="alert info small">ไม่ต้องจดรหัสปลดล็อกเครื่อง ถ้าช่างต้องใช้ ให้ลูกค้าปลดล็อกเองที่ร้าน</div>
-      <div id="n-err"></div><button class="btn btn-acc btn-block" type="submit">บันทึกรับเครื่อง</button></form></section></div>`;
+      ${W().unlock?`<div class="alert info small">ไม่ต้องจดรหัสปลดล็อก${IT()} ถ้าช่างต้องใช้ ให้ลูกค้าปลดล็อกเองที่ร้าน</div>`:''}
+      <div id="n-err"></div><button class="btn btn-acc btn-block" type="submit">บันทึกรับ${IT()}</button></form></section></div>`;
   const q=s=>app.querySelector(s);
-  const probs=()=>{q('#n-pq').innerHTML=(PROB[type]||[]).map(p=>`<button type="button" class="chip" data-p="${esc(p)}">+ ${esc(p)}</button>`).join('');
+  const probs=()=>{q('#n-pq').innerHTML=probsOf(type).map(p=>`<button type="button" class="chip" data-p="${esc(p)}">+ ${esc(p)}</button>`).join('');
     app.querySelectorAll('[data-p]').forEach(b=>b.onclick=()=>{const t=q('#n-p');t.value=(t.value?t.value.replace(/\s*$/,'')+' ':'')+b.dataset.p;t.focus()})};probs();
   app.querySelectorAll('[data-t]').forEach(b=>b.onclick=()=>{type=b.dataset.t;app.querySelectorAll('[data-t]').forEach(x=>x.setAttribute('aria-pressed',x===b));probs()});
   app.querySelectorAll('[data-a]').forEach(b=>b.onclick=()=>b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')!=='true'));
   app.querySelectorAll('[data-d]').forEach(b=>b.onclick=()=>{q('#n-d').value=isoNow(+b.dataset.d);app.querySelectorAll('[data-d]').forEach(x=>x.setAttribute('aria-pressed',x===b))});
-  const photos=spotPicker(q('#n-ph2'),'nps',SPOTS,()=>(q('#n-m').value||'เครื่องลูกค้า'));
+  const photos=spotPicker(q('#n-ph2'),'nps',SPOTS,()=>(q('#n-m').value||`${IT()}ลูกค้า`));
   let dm=(BIZ.payMethods||['เงินสด'])[0];q('#n-dep').oninput=()=>{q('#n-dm').hidden=!(+q('#n-dep').value>0)};
   app.querySelectorAll('[data-dm]').forEach(b=>b.onclick=()=>{dm=b.dataset.dm;app.querySelectorAll('[data-dm]').forEach(x=>x.setAttribute('aria-pressed',x===b))});
   let HT;q('#n-ph').oninput=()=>{clearTimeout(HT);const v=q('#n-ph').value.replace(/\D/g,'');if(v.length<9){q('#n-hist').innerHTML='';return}
@@ -864,7 +1064,7 @@ function vNew(){
       if(!q('#n-c').value)q('#n-c').value=c.name;q('#n-hist').innerHTML=`<span style="color:var(--teal)">ลูกค้าเก่า · เคยส่งซ่อม ${c.jobs} งาน</span>`}).catch(()=>{}),350)};
   q('#nf').onsubmit=async e=>{e.preventDefault();const b=e.target.querySelector('button[type=submit]');busy(b,true,'กำลังบันทึก…');
     try{const acc=[...app.querySelectorAll('[data-a][aria-pressed=true]')].map(x=>x.dataset.a).join(', ');
-      const d={cust:q('#n-c').value,phone:q('#n-ph').value,type,model:q('#n-m').value,serial:q('#n-s').value,problem:q('#n-p').value,acc,due:q('#n-d').value,photos:photos(),note:q('#n-n').value,deposit:+q('#n-dep').value>0?{amount:q('#n-dep').value,method:dm}:null};
+      const d={cust:q('#n-c').value,phone:q('#n-ph').value,type,model:q('#n-m').value,serial:q('#n-s').value,extra:q('#n-x')?q('#n-x').value:'',problem:q('#n-p').value,acc,due:q('#n-d').value,photos:photos(),note:q('#n-n').value,deposit:+q('#n-dep').value>0?{amount:q('#n-dep').value,method:dm}:null};
       const j=claim?await run('apiClaim',tok(),claim.id,d):await run('apiJobNew',tok(),d);
       view={name:'job',id:j.id,fresh:true};render()}
     catch(x){q('#n-err').innerHTML=errBox(x.message);busy(b,false)}};
@@ -901,31 +1101,31 @@ function paintJob(j){
     if(['recv','check','fix','part'].includes(j.st))A.push(PRO()?btn('a-quote',q?'แก้ใบเสนอราคา':'เสนอราคาให้ลูกค้า','btn-acc','doc'):'');
     if(['check','fix','part'].includes(j.st)||(j.st==='recv'&&!PRO()))A.push(j.st!=='fix'?btn('a-fix','กำลังซ่อม','btn-line'):'');
     if(['check','fix'].includes(j.st))A.push(btn('a-part','รออะไหล่','btn-line'));
-    if(['check','fix','part'].includes(j.st))A.push(btn('a-ready','ซ่อมเสร็จ พร้อมรับเครื่อง','btn-ok','check'));
+    if(['check','fix','part'].includes(j.st))A.push(btn('a-ready',`ซ่อมเสร็จ พร้อมรับ${IT()}`,'btn-ok','check'));
   }
   if(j.st==='quote'&&j.qstate==='wait'&&(can('intake')||can('fix')))A.push(btn('a-qok','ลูกค้าแจ้งว่าอนุมัติราคา','btn-ok'),btn('a-qno','ลูกค้าไม่อนุมัติ','btn-line'));
-  if(act&&can('intake')&&!(j.st==='quote'&&j.qstate==='wait'))A.push(btn('a-out',j.st==='ready'?'ส่งคืนเครื่อง / รับเงิน':'ส่งคืนเครื่องก่อนซ่อมเสร็จ',j.st==='ready'?'btn-acc':'btn-line','outbox'));
+  if(act&&can('intake')&&!(j.st==='quote'&&j.qstate==='wait'))A.push(btn('a-out',j.st==='ready'?`ส่งคืน${IT()} / รับเงิน`:`ส่งคืน${IT()}ก่อนซ่อมเสร็จ`,j.st==='ready'?'btn-acc':'btn-line','outbox'));
   if(j.st==='done'&&j.wUntil&&can('intake')&&isoNow(0)<=j.wUntil)A.push(locked('warranty')?'':btn('a-claim','เปิดงานเคลมประกัน','btn-line','shield'));
   if(act&&can('intake'))A.push(btn('a-dep',j.dep?'รับมัดจำเพิ่ม':'รับมัดจำ','btn-line','receipt'));
   if(j.receipt)A.push(btn('a-rc','ใบเสร็จ'+(j.wdays?' + ใบรับประกัน':''),'btn-line','receipt'));
   if(act&&isAdmin())A.push(btn('a-cancel','ยกเลิกงาน','btn-bad'));
-  $('#jb').innerHTML=`${fresh?`<div class="alert ok"><b>บันทึกรับเครื่องแล้ว · ${esc(j.id)}</b><br>ส่งลิงก์ติดตามงานให้ลูกค้า หรือพิมพ์ใบรับเครื่อง</div>`:''}
+  $('#jb').innerHTML=`${fresh?`<div class="alert ok"><b>บันทึกรับ${IT()}แล้ว · ${esc(j.id)}</b><br>ส่งลิงก์ติดตามงานให้ลูกค้า หรือพิมพ์ใบรับ${IT()}</div>`:''}
     <section class="panel"><div class="toolbar"><div><div class="small muted">${esc(j.at)} · รับโดย ${esc((j.by||'').split(' (')[0])}</div>
       <h2 style="margin:2px 0">${esc(j.cust)}</h2><a class="mono" href="tel:${esc(j.phone)}">${icon('phone','pico')} ${esc(fmtPh(j.phone))}</a></div>${stPill(j.st)}</div>
-      <div class="steps">${STEPS.map((s,i)=>`<div class="stp${i<stepI?' on':i===stepI?' cur':''}"><i></i><span>${esc(i===2&&!q?'ตกลงราคา':BIZ.st[s].replace('พร้อมรับเครื่อง','พร้อมรับ'))}</span></div>`).join('')}</div>
+      <div class="steps">${STEPS.map((s,i)=>`<div class="stp${i<stepI?' on':i===stepI?' cur':''}"><i></i><span>${esc(i===2&&!q?'ตกลงราคา':BIZ.st[s].replace(`พร้อมรับ${IT()}`,'พร้อมรับ'))}</span></div>`).join('')}</div>
       ${late?`<div class="alert warn">เลยวันนัดรับ (${esc(isoTH(j.due))}) แจ้งลูกค้าด้วย</div>`:''}
       ${j.seenAlert?`<div class="alert ${j.seenAlert.t==='no'?'bad':'ok'}"><b>ลูกค้า${esc(ALERT_TH[j.seenAlert.t]||'')}</b>${j.seenAlert.note?' · '+esc(j.seenAlert.note):''}<div class="small">${esc(j.seenAlert.at)}</div></div>`:''}
       ${isLong(j)?`<div class="alert warn">ซ่อมเสร็จแล้วลูกค้ายังไม่มารับเกิน 30 วัน <button class="btn btn-line btn-sm" id="a-remind">ส่งข้อความทวง</button></div>`:''}
       ${j.claimOf?`<div class="alert info">งานเคลมประกันจากงาน <button class="linkbtn" data-job="${esc(j.claimOf)}">${esc(j.claimOf)}</button></div>`:''}
-      <dl class="kv"><dt>เครื่อง</dt><dd>${esc(j.type)} · <b>${esc(j.model)}</b>${j.serial?`<br><span class="mono small">${esc(j.serial)}</span>`:''}</dd>
-        <dt>อาการ</dt><dd>${esc(j.problem)}</dd>${j.acc?`<dt>ของที่ให้มา</dt><dd>${esc(j.acc)}</dd>`:''}
+      <dl class="kv"><dt>${IT()}</dt><dd>${esc(j.type)} · <b>${esc(j.model)}</b>${j.serial?`<br><span class="mono small">${esc(W().serial)}: ${esc(j.serial)}</span>`:''}${j.extra?`<br><span class="small">${esc(W().extra)}: ${esc(j.extra)}</span>`:''}</dd>
+        <dt>${esc((W().prob||"อาการ").replace("ที่ลูกค้าแจ้ง",""))}</dt><dd>${esc(j.problem)}</dd>${j.acc?`<dt>ของที่ให้มา</dt><dd>${esc(j.acc)}</dd>`:''}
         <dt>นัดรับ</dt><dd>${esc(isoTH(j.due)||'-')}</dd><dt>ช่าง</dt><dd>${esc(j.tech||'ยังไม่มี')}</dd>
         ${j.dep?`<dt>มัดจำ</dt><dd><b>${baht(j.dep.amt)} บาท</b> · ${esc(j.dep.method)} · ${esc(j.dep.at)}</dd>`:''}
         ${j.rate?`<dt>คะแนนลูกค้า</dt><dd><span class="stars">${'★'.repeat(j.rate.s)}${'☆'.repeat(5-j.rate.s)}</span>${j.rate.text?'<br>'+esc(j.rate.text):''}</dd>`:''}
         ${j.outAt?`<dt>ส่งคืน</dt><dd>${esc(j.outAt)}${j.total?` · ${baht(j.total)} บาท (${esc(j.method)})`:' · ไม่มีค่าใช้จ่าย'}${j.wUntil?`<br>รับประกันถึง ${esc(isoTH(j.wUntil))}`:''}</dd>`:''}</dl>
-      ${gallery('รูปตอนรับเครื่อง',j.photosIn)}${gallery('รูปตอนส่งคืน',j.photosOut)}</section>
+      ${gallery(`รูปตอนรับ${IT()}`,j.photosIn)}${gallery('รูปตอนส่งคืน',j.photosOut)}</section>
     <section class="panel"><h3>${icon('qr','pico')} ลิงก์ติดตามงานของลูกค้า</h3><div class="small muted">ลูกค้าเปิดดูสถานะ ราคา และกดอนุมัติเองได้ ไม่ต้องโทรถาม (ไม่เห็นเบอร์เต็มและรูปถ่าย)</div>
-      <div class="actions"><button class="btn btn-acc" id="a-copy">${icon('chat')}ส่งข้อความหาลูกค้า</button><button class="btn btn-line" id="a-slip">${icon('doc')}ใบรับเครื่อง (มี QR)</button><a class="btn btn-line" data-track href="${esc(trackUrl(j.tok))}" target="_blank" rel="noopener">เปิดดูแบบลูกค้า</a></div></section>
+      <div class="actions"><button class="btn btn-acc" id="a-copy">${icon('chat')}ส่งข้อความหาลูกค้า</button><button class="btn btn-line" id="a-slip">${icon('doc')}ใบรับ${IT()} (มี QR)</button><a class="btn btn-line" data-track href="${esc(trackUrl(j.tok))}" target="_blank" rel="noopener">เปิดดูแบบลูกค้า</a></div></section>
     ${q?`<section class="panel"><h3>ใบเสนอราคา ${j.qstate==='wait'?'<span class="pill t-warn">รอลูกค้าอนุมัติ</span>':j.qstate==='ok'?'<span class="pill t-done">ลูกค้าอนุมัติแล้ว</span>':j.qstate==='no'?'<span class="pill t-rejected">ลูกค้าไม่อนุมัติ</span>':''}</h3>${quoteTable(q)}<div class="small muted">เสนอโดย ${esc(q.by)} · ${esc(q.at)}</div></section>`:''}
     ${A.filter(Boolean).length?`<section class="panel"><h3>ทำต่อ</h3><div class="stack">${A.filter(Boolean).join('')}</div>
       <div class="field" style="margin-top:12px"><label for="a-note">บันทึกเพิ่มในประวัติ <span class="opt">(ลูกค้าเห็นแค่สถานะ ไม่เห็นข้อความนี้)</span></label><div class="scanrow"><input class="input" id="a-note" maxlength="300"><button class="btn btn-line btn-sm" id="a-addnote">บันทึก</button></div></div>
@@ -947,7 +1147,7 @@ function paintJob(j){
   on('a-quote',()=>quoteForm(j));on('a-out',()=>deliverForm(j));on('a-rc',()=>showReceipt(j));
   on('a-claim',()=>{view={name:'new',claim:j};render()});
   on('a-copy',()=>sendBox(j,isLong(j)?'remind':j.st==='ready'?'ready':q&&j.qstate==='wait'?'quote':'status'));
-  on('a-remind',()=>sendBox(j,'remind','ทวงให้ลูกค้ามารับเครื่อง'));
+  on('a-remind',()=>sendBox(j,'remind',`ทวงให้ลูกค้ามารับ${IT()}`));
   on('a-dep',()=>depForm(j));
   on('a-slip',()=>slipDoc(j));
   if(DEMO)el.querySelector('[data-track]').onclick=e=>{e.preventDefault();demoTrack(j.tok)};
@@ -989,8 +1189,8 @@ async function quoteForm(j){
 function deliverForm(j){
   const q=j.quote,base0=j.qstate==='ok'&&q?q.total:j.total||0,noRep=j.qstate==='no'||j.st!=='ready',dep=(j.dep||{}).amt||0;
   const methods=BIZ.payMethods||['เงินสด'];let method=methods[0];
-  const mm=modal(`<h2>ส่งคืนเครื่อง ${esc(j.id)}</h2><div class="muted">${esc(j.cust)} · ${esc(j.model)}</div>
-    ${j.qstate==='no'?'<div class="alert info small">ลูกค้าไม่อนุมัติราคา ถ้ามีค่าตรวจเช็ก ใส่ยอดได้ ถ้าไม่มีใส่ 0</div>':j.st!=='ready'?'<div class="alert warn small">งานยังไม่เสร็จ จะบันทึกว่า "คืนเครื่อง (ไม่ได้ซ่อม)"</div>':''}
+  const mm=modal(`<h2>ส่งคืน${IT()} ${esc(j.id)}</h2><div class="muted">${esc(j.cust)} · ${esc(j.model)}</div>
+    ${j.qstate==='no'?'<div class="alert info small">ลูกค้าไม่อนุมัติราคา ถ้ามีค่าตรวจเช็ก ใส่ยอดได้ ถ้าไม่มีใส่ 0</div>':j.st!=='ready'?`<div class="alert warn small">งานยังไม่เสร็จ จะบันทึกว่า "คืน${IT()} (ไม่ได้ซ่อม)"</div>`:''}
     <div class="row2"><div class="field"><label for="dv-a">ค่าซ่อม (บาท)</label><input class="input mono" id="dv-a" inputmode="decimal" value="${noRep&&j.qstate==='no'?0:base0||0}"></div>
       <div class="field"><label for="dv-d">ส่วนลด (บาท)</label><input class="input mono" id="dv-d" inputmode="decimal" placeholder="0"></div></div>
     <div class="paysum" id="dv-sum"></div>
@@ -1014,7 +1214,7 @@ function deliverForm(j){
   const photos=spotPicker(q2('#dv-ph'),'dvp',['ตอนส่งคืน'],()=>j.model);
   q2('#dv-ok').onclick=async e=>{const b=e.currentTarget,c=calc();if((+q2('#dv-d').value||0)>(+q2('#dv-a').value||0)){q2('#dv-e').innerHTML=errBox('ส่วนลดมากกว่าค่าซ่อม');return}busy(b,true);
     try{const r=await run('apiDeliver',tok(),j.id,{amount:c.total,discount:+q2('#dv-d').value||0,method:c.now?method:'',wdays:q2('#dv-w')?q2('#dv-w').value:0,note:q2('#dv-n').value,photos:photos(),noRepair:noRep});
-      mm.close();toast(r.refund?'ส่งคืนแล้ว อย่าลืมคืนมัดจำ '+baht(r.refund)+' บาท':'ส่งคืนเครื่องแล้ว');paintJob(r);if(r.receipt)showReceipt(r)}
+      mm.close();toast(r.refund?'ส่งคืนแล้ว อย่าลืมคืนมัดจำ '+baht(r.refund)+' บาท':`ส่งคืน${IT()}แล้ว`);paintJob(r);if(r.receipt)showReceipt(r)}
     catch(x){q2('#dv-e').innerHTML=errBox(x.message);busy(b,false)}};
 }
 /* รับมัดจำภายหลัง */
@@ -1031,16 +1231,16 @@ function depForm(j){const methods=BIZ.payMethods||['เงินสด'];let m=m
 const shopLine=()=>{const s=BIZ.shop||{};return [s.addr,s.phone?'โทร '+fmtPh(s.phone):'',s.line?'LINE '+s.line:''].filter(Boolean).map(esc).join(' · ')};
 async function slipDoc(j){
   let qr='';try{qr=await qrSvg(trackUrl(j.tok))}catch(e){qr=''}
-  const html=`<div class="doc slip"><div class="doc-h"><b class="doc-org">${esc(BIZ.org)}</b><div>${shopLine()}</div></div><div class="doc-t">ใบรับเครื่องซ่อม</div>
+  const html=`<div class="doc slip"><div class="doc-h"><b class="doc-org">${esc(BIZ.org)}</b><div>${shopLine()}</div></div><div class="doc-t">ใบรับ${IT()}ซ่อม</div>
     <div class="doc-meta"><div>เลขงาน <b class="mono">${esc(j.id)}</b></div><div>วันที่ ${esc(j.at)}</div></div>
     <table class="doc-tbl"><tbody><tr><td>ลูกค้า</td><td style="text-align:left">${esc(j.cust)} · ${esc(fmtPh(j.phone))}</td></tr>
-      <tr><td>เครื่อง</td><td style="text-align:left">${esc(j.type)} · ${esc(j.model)}${j.serial?' · '+esc(j.serial):''}</td></tr>
+      <tr><td>${IT()}</td><td style="text-align:left">${esc(j.type)} · ${esc(j.model)}${j.serial?' · '+esc(j.serial):''}${j.extra?' · '+esc(W().extra)+' '+esc(j.extra):''}</td></tr>
       <tr><td>อาการ</td><td style="text-align:left">${esc(j.problem)}</td></tr>${j.acc?`<tr><td>ของที่ให้มา</td><td style="text-align:left">${esc(j.acc)}</td></tr>`:''}
-      <tr><td>นัดรับ</td><td style="text-align:left">${esc(isoTH(j.due)||'-')}</td></tr>${j.dep?`<tr><td>รับมัดจำ</td><td style="text-align:left"><b>${money(j.dep.amt)} บาท</b> (${esc(j.dep.method)})</td></tr>`:''}${(j.photosIn||[]).length?`<tr><td>รูปสภาพเครื่อง</td><td style="text-align:left">${j.photosIn.length} รูป (${j.photosIn.map(p=>esc(p.label)).join(', ')}) เก็บในระบบ</td></tr>`:''}</tbody></table>
+      <tr><td>นัดรับ</td><td style="text-align:left">${esc(isoTH(j.due)||'-')}</td></tr>${j.dep?`<tr><td>รับมัดจำ</td><td style="text-align:left"><b>${money(j.dep.amt)} บาท</b> (${esc(j.dep.method)})</td></tr>`:''}${(j.photosIn||[]).length?`<tr><td>รูปสภาพ${IT()}</td><td style="text-align:left">${j.photosIn.length} รูป (${j.photosIn.map(p=>esc(p.label)).join(', ')}) เก็บในระบบ</td></tr>`:''}</tbody></table>
     <div class="slipqr">${qr?`<div class="sq">${qr}</div>`:''}<div><b>สแกนเพื่อติดตามงาน</b><div class="small">ดูสถานะ ราคา และอนุมัติการซ่อมได้เอง ไม่ต้องโทรถาม</div><div class="small mono" style="word-break:break-all">${esc(trackUrl(j.tok))}</div></div></div>
     <div class="terms"><b>เงื่อนไข</b><ol>${String((BIZ.shop||{}).terms||'').split('\n').filter(Boolean).map(t=>`<li>${esc(t)}</li>`).join('')}</ol></div>
-    <div class="doc-sign two"><div>ลงชื่อ ............................ ลูกค้า</div><div>ลงชื่อ ............................ ผู้รับเครื่อง<br>(${esc((j.by||'').split(' (')[0])})</div></div></div>`;
-  docModal('ใบรับเครื่อง '+j.id,html,'ใบรับเครื่อง '+j.id,true);
+    <div class="doc-sign two"><div>ลงชื่อ ............................ ลูกค้า</div><div>ลงชื่อ ............................ ผู้รับ${IT()}<br>(${esc((j.by||'').split(' (')[0])})</div></div></div>`;
+  docModal(`ใบรับ${IT()} `+j.id,html,`ใบรับ${IT()} `+j.id,true);
 }
 function receiptHtml(j){const rc=j.receipt||{},q=j.qstate==='ok'?j.quote:null;
   const rows=q?q.items.map(x=>`<tr><td>${esc(x.name)}${x.qty>1?' × '+x.qty:''}</td><td>${money(x.qty*x.price)}</td></tr>`).join('')+(q.labor?`<tr><td>ค่าแรง / ค่าบริการ</td><td>${money(q.labor)}</td></tr>`:''):`<tr><td>ค่าบริการซ่อม ${esc(j.model)}</td><td>${money(j.total)}</td></tr>`;
@@ -1084,7 +1284,7 @@ function vCust(){
 /* ---------- อะไหล่ (โปร) ---------- */
 function vParts(){
   if(locked('parts'))return proInfo(),go('home');
-  app.innerHTML=`<div class="stack">${backHead('สต็อกอะไหล่','ตัดสต็อกอัตโนมัติเมื่อส่งคืนเครื่องที่ใช้อะไหล่จากสต็อก','box')}
+  app.innerHTML=`<div class="stack">${backHead('สต็อกอะไหล่',`ตัดสต็อกอัตโนมัติเมื่อส่งคืน${IT()}ที่ใช้อะไหล่จากสต็อก`,'box')}
     ${can('parts')?`<button class="btn btn-acc big-act" id="pa-new">${icon('plus')}เพิ่มอะไหล่</button>`:''}
     <section class="panel"><div class="field"><input class="input" id="pq" placeholder="ค้นชื่ออะไหล่" aria-label="ค้นอะไหล่"></div><div class="list" id="pl">${loadingList}</div></section></div>`;
   let all=[];const paint=()=>{const k=$('#pq').value.trim().toLowerCase(),ls=all.filter(p=>!k||p.name.toLowerCase().includes(k));
@@ -1112,7 +1312,7 @@ function partForm(p,after){
 function vIncome(){
   if(locked('income'))return proInfo(),go('home');
   const y0=new Date().getFullYear();
-  app.innerHTML=`<div class="stack">${backHead('รายรับ','นับตามวันที่ส่งคืนเครื่องและรับเงิน','chart')}<section class="panel">
+  app.innerHTML=`<div class="stack">${backHead('รายรับ',`นับตามวันที่ส่งคืน${IT()}และรับเงิน`,'chart')}<section class="panel">
     <div class="field"><label for="iy">ปี</label><select class="input" id="iy">${[0,1,2].map(i=>`<option value="${y0-i}">พ.ศ. ${y0-i+543}</option>`).join('')}</select></div><div id="ib">${loadingList}</div></section></div>`;
   const load=()=>run('apiIncome',tok(),+$('#iy').value).then(d=>{
     const row=(l,o,c)=>`<tr${c?` class="${c}"`:''}><td>${l}</td><td>${baht(o.labor)}</td><td>${baht(o.parts)}</td><td><b>${baht(o.total)}</b></td><td>${baht(o.total-o.cost)}</td><td>${o.n}</td></tr>`;
@@ -1131,7 +1331,7 @@ function vIncome(){
 function vAdmin(){
   if(!isAdmin())return go('home');
   const tab=view.tab||'stats';
-  app.innerHTML=`<div class="stack">${backHead('เจ้าของร้าน','ภาพรวม ผู้ใช้ ตั้งค่าร้าน','chart')}
+  app.innerHTML=`<div class="stack">${backHead('เจ้าของร้าน','ภาพรวม ผู้ใช้ ตั้งค่าร้าน','chart')}${helpRow()}
     <div class="tabs" role="tablist">${[['stats','ภาพรวม'],['users','ผู้ใช้'],['set','ตั้งค่าร้าน']].map(([k,l])=>`<button role="tab" data-t="${k}" aria-selected="${k===tab}">${l}</button>`).join('')}</div>
     <div id="pane" class="stack">${loadingList}</div></div>`;
   app.querySelectorAll('[data-t]').forEach(b=>b.onclick=()=>{view.tab=b.dataset.t;vAdmin()});
@@ -1141,17 +1341,17 @@ function paneStats(){
   const days=view.days||30;
   run('apiStats',tok(),days).then(s=>{
     $('#pane').innerHTML=`<div class="toolbar"><div class="chips">${[7,30,90].map(d=>`<button class="chip" data-d="${d}" aria-pressed="${d===days}">${d} วัน</button>`).join('')}</div><span class="small muted">อัปเดต ${esc(s.updated)}</span></div>
-      <div class="kpis"><div class="kpi"><div class="kpi-h">รับเครื่องเข้า</div><div class="kpi-n"><div><b>${s.inN}</b><span>งาน</span></div><div><b>${s.active}</b><span>ค้างอยู่ตอนนี้</span></div></div></div>
+      <div class="kpis"><div class="kpi"><div class="kpi-h">รับ${IT()}เข้า</div><div class="kpi-n"><div><b>${s.inN}</b><span>งาน</span></div><div><b>${s.active}</b><span>ค้างอยู่ตอนนี้</span></div></div></div>
         <div class="kpi"><div class="kpi-h">ส่งคืนแล้ว</div><div class="kpi-n"><div><b>${s.outN}</b><span>งาน</span></div><div><b>${s.medHrs<48?s.medHrs+' ชม.':Math.round(s.medHrs/24)+' วัน'}</b><span>ใช้เวลา (ค่ากลาง)</span></div></div></div>
         <div class="kpi"><div class="kpi-h">รับเงิน</div><div class="kpi-n"><div><b>${baht(s.rev)}</b><span>บาท</span></div></div></div></div>
       <section class="panel"><h3>รับเข้า / ส่งคืน ต่อวัน</h3><div class="legend"><span><i class="sw" style="background:var(--m1)"></i>รับเข้า</span><span><i class="sw" style="background:var(--m3)"></i>ส่งคืน</span></div><div class="plot" id="plot"></div></section>
-      ${s.unclaimed?`<button class="alert warn unclbtn" id="st-unc">${icon('box','pico')} เครื่องค้างร้านเกิน ${s.unclaimDays} วัน <b>${s.unclaimed} เครื่อง</b> · กดเพื่อดูและส่งข้อความทวง</button>`:''}
+      ${s.unclaimed?`<button class="alert warn unclbtn" id="st-unc">${icon('box','pico')} ${IT()}ค้างร้านเกิน ${s.unclaimDays} วัน <b>${s.unclaimed} ${IT()}</b> · กดเพื่อดูและส่งข้อความทวง</button>`:''}
       <section class="panel"><h3>ผลงานช่าง (งานที่ส่งคืนแล้วในช่วงนี้)</h3>${s.techs.length?`<div class="inc-wrap"><table class="inc"><thead><tr><th>ช่าง</th><th>งาน</th><th>เวลาซ่อม (ค่ากลาง)</th><th>รับเงิน</th><th>คะแนน</th></tr></thead><tbody>
         ${s.techs.map(t=>`<tr><td style="text-align:left">${esc(t.tech)}</td><td>${t.n}</td><td>${t.medHrs<48?t.medHrs+' ชม.':Math.round(t.medHrs/24)+' วัน'}</td><td>${baht(t.rev)}</td><td>${t.stars?t.stars+' ★':'-'}</td></tr>`).join('')}</tbody></table></div>`:'<div class="empty">ยังไม่มีงานที่ส่งคืนในช่วงนี้</div>'}</section>
       <section class="panel"><h3>คะแนนจากลูกค้า</h3>${s.rating.n?`<div class="kpi-n"><div><b>${s.rating.avg} <span class="stars">★</span></b><span>เฉลี่ยจาก ${s.rating.n} งาน</span></div></div>
         <div class="list">${s.rating.recent.map(r=>`<div class="item"><div class="item-main"><b><span class="stars">${'★'.repeat(r.s)}${'☆'.repeat(5-r.s)}</span> คุณ${esc(r.cust)}</b><div class="item-sub">${esc(r.text||'(ไม่มีข้อความ)')}</div><div class="item-sub">${esc(r.id)} · ${esc(r.at)}</div></div></div>`).join('')}</div>`
-        :'<div class="empty">ยังไม่มีคะแนน · ลูกค้าให้คะแนนได้จากลิงก์ติดตามงานหลังรับเครื่อง</div>'}</section>
-      <section class="panel"><h3>ประเภทเครื่อง</h3><div class="list">${Object.entries(s.types).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`<div class="item"><div class="item-main"><b>${esc(k)}</b></div><b>${v}</b></div>`).join('')||'<div class="empty">ยังไม่มีงาน</div>'}</div></section>`;
+        :`<div class="empty">ยังไม่มีคะแนน · ลูกค้าให้คะแนนได้จากลิงก์ติดตามงานหลังรับ${IT()}</div>`}</section>
+      <section class="panel"><h3>ประเภท${IT()}</h3><div class="list">${Object.entries(s.types).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`<div class="item"><div class="item-main"><b>${esc(k)}</b></div><b>${v}</b></div>`).join('')||'<div class="empty">ยังไม่มีงาน</div>'}</div></section>`;
     app.querySelectorAll('[data-d]').forEach(b=>b.onclick=()=>{view.days=+b.dataset.d;paneStats()});drawBars($('#plot'),s);
     {const u=$('#st-unc');if(u)u.onclick=()=>go('jobs',{st:'long'})}
   }).catch(e=>{$('#pane').innerHTML=errBox(e.message)});
@@ -1196,14 +1396,16 @@ function storageHtml(st){const g=st.storage;if(!g||!g.limit)return '';
       <a class="btn btn-line btn-sm" href="https://one.google.com/storage" target="_blank" rel="noopener" style="margin-top:8px">เปิดหน้า Google One</a></details></section>`}
 function paneSettings(){
   run('apiSettings',tok()).then(st=>{const s=st.shop,pay=st.pay||{},rc=st.receipt||{};
-    $('#pane').innerHTML=`<section class="panel"><h3>ข้อมูลร้าน <span class="small muted">(แสดงในลิงก์ลูกค้า ใบรับเครื่อง ใบเสร็จ)</span></h3>
+    $('#pane').innerHTML=`<section class="panel"><h3>ประเภทร้าน</h3><div class="small muted">ใช้ตั้งคำเรียก ประเภทงาน อาการที่พบบ่อย จุดถ่ายรูป และเงื่อนไขรับงานให้ตรงกับร้าน เปลี่ยนได้ทุกเมื่อ งานเดิมไม่หาย</div>
+        <div class="chips" style="margin-top:8px">${st.typeLock?`<span class="chip" aria-pressed="true">${icon('lock','pico')} ${esc(((st.types||[]).find(t=>t.id===st.typeLock)||{}).label||st.typeLock)}</span></div><div class="small muted" style="margin-top:6px">แพ็กเกจโปรล็อกประเภทธุรกิจตามที่ซื้อไว้ (1 รหัส = 1 กิจการ) ถ้าเลือกผิด ทัก LINE @352ismlf ให้เปลี่ยนให้`:(st.types||[]).map(t=>`<button type="button" class="chip" data-bt="${t.id}" aria-pressed="${t.id===st.type}">${esc(t.label)}</button>`).join('')}</div><div id="s-e0"></div></section>
+      <section class="panel"><h3>ข้อมูลร้าน <span class="small muted">(แสดงในลิงก์ลูกค้า ใบรับ${IT()} ใบเสร็จ)</span></h3>
         <div class="field"><label for="s-org">ชื่อร้าน</label><input class="input" id="s-org" maxlength="60" value="${esc(st.org)}"></div>
         <div class="row2"><div class="field"><label for="s-ph">เบอร์ร้าน</label><input class="input mono" id="s-ph" inputmode="tel" value="${esc(s.phone)}"></div><div class="field"><label for="s-ln">LINE ร้าน</label><input class="input" id="s-ln" value="${esc(s.line)}" placeholder="@..."></div></div>
         <div class="field"><label for="s-ad">ที่อยู่</label><input class="input" id="s-ad" maxlength="200" value="${esc(s.addr)}"></div>
         <div class="row2"><div class="field"><label for="s-hr">เวลาเปิด</label><input class="input" id="s-hr" maxlength="80" value="${esc(s.hours)}"></div><div class="field"><label for="s-wd">รับประกันตั้งต้น (วัน)</label><input class="input mono" id="s-wd" inputmode="numeric" value="${s.wdays}"></div></div>
-        <div class="field"><label for="s-tm">เงื่อนไขในใบรับเครื่อง <span class="opt">(บรรทัดละข้อ)</span></label><textarea class="input" id="s-tm" rows="6">${esc(s.terms)}</textarea></div>
+        <div class="field"><label for="s-tm">เงื่อนไขในใบรับ${IT()} <span class="opt">(บรรทัดละข้อ)</span></label><textarea class="input" id="s-tm" rows="6">${esc(s.terms)}</textarea></div>
         <label class="small" style="display:flex;gap:8px;align-items:flex-start;border:1.5px solid var(--line);border-radius:12px;padding:12px"><input type="checkbox" id="s-sp" ${s.showPhotos?'checked':''} style="width:22px;height:22px;accent-color:var(--teal);flex:none">
-          <span><b>ให้ลูกค้าเห็นรูปสภาพเครื่องตอนรับ</b> ในลิงก์ติดตามงาน<br><span class="muted">ใช้กับรูปที่ถ่ายหลังเปิดตัวเลือกนี้ · ใครมีลิงก์ก็เปิดรูปได้ ถ้าเปิดใช้ ควรแก้ข้อความ "การเก็บข้อมูลส่วนบุคคล" ด้านล่างให้ตรงด้วย</span></span></label>
+          <span><b>ให้ลูกค้าเห็นรูปสภาพ${IT()}ตอนรับ</b> ในลิงก์ติดตามงาน<br><span class="muted">ใช้กับรูปที่ถ่ายหลังเปิดตัวเลือกนี้ · ใครมีลิงก์ก็เปิดรูปได้ ถ้าเปิดใช้ ควรแก้ข้อความ "การเก็บข้อมูลส่วนบุคคล" ด้านล่างให้ตรงด้วย</span></span></label>
         <div id="s-e1"></div><button class="btn btn-acc" id="s-s1">บันทึกข้อมูลร้าน</button></section>
       <section class="panel"><h3>สิทธิ์ของแต่ละตำแหน่ง</h3>${Object.entries(st.pos).map(([k,v])=>`<div class="field"><span class="lab">${esc(v)}</span><div class="chips">${Object.entries(st.feat).map(([f,l])=>`<button type="button" class="chip" data-pp="${k}" data-f="${f}" aria-pressed="${(st.perms[k]||[]).includes(f)}">${esc(l)}</button>`).join('')}</div></div>`).join('')}
         <div id="s-e2"></div><button class="btn btn-acc" id="s-s2">บันทึกสิทธิ์</button></section>
@@ -1215,6 +1417,7 @@ function paneSettings(){
       ${storageHtml(st)}
       <section class="panel"><h3>การเก็บข้อมูลส่วนบุคคล</h3><textarea class="input" id="pv-t" rows="6">${esc(st.privacy)}</textarea><div id="s-e5"></div><button class="btn btn-acc" id="s-s5" style="margin-top:8px">บันทึก</button></section>`;
     app.querySelectorAll('[data-pp]').forEach(b=>b.onclick=()=>b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')!=='true'));
+    app.querySelectorAll('[data-bt]').forEach(b=>b.onclick=async()=>{try{await run('apiSaveSettings',tok(),{type:b.dataset.bt});await boot2();toast('เปลี่ยนเป็น '+BIZ.typeLabel+' แล้ว');paneSettings()}catch(e){$('#s-e0').innerHTML=errBox(e.message)}});
     const save=(id,eid,data,msg)=>{$(id).onclick=async()=>{const b=$(id);busy(b,true);try{await run('apiSaveSettings',tok(),data());toast(msg);await boot2()}catch(e){$(eid).innerHTML=errBox(e.message)}busy(b,false)}};
     save('#s-s1','#s-e1',()=>({org:$('#s-org').value,shop:{phone:$('#s-ph').value,line:$('#s-ln').value,addr:$('#s-ad').value,hours:$('#s-hr').value,wdays:$('#s-wd').value,terms:$('#s-tm').value,showPhotos:$('#s-sp').checked}}),'บันทึกข้อมูลร้านแล้ว');
     save('#s-s2','#s-e2',()=>{const o={};Object.keys(st.pos).forEach(k=>o[k]=[...app.querySelectorAll(`[data-pp="${k}"][aria-pressed=true]`)].map(b=>b.dataset.f));return {perms:o}},'บันทึกสิทธิ์แล้ว');
@@ -1231,24 +1434,24 @@ async function vTrack(tk){
   let p;try{p=await run('pubJob',tk)}catch(e){app.innerHTML=`<div class="narrow">${errBox(e.message)}</div>`;return}
   $('#org').textContent=p.org;$('#bizname').textContent='ติดตามงานซ่อม';$('#mark').innerHTML=icon('logo');document.title=p.org+' · '+p.id;
   const idx=p.st==='part'?3:p.st==='back'?4:STEPS.indexOf(p.st),done=['done','back','cancel'].includes(p.st);
-  const msg={recv:'ร้านรับเครื่องแล้ว รอช่างตรวจเช็ก',check:'ช่างกำลังตรวจเช็กอาการ',quote:'ร้านแจ้งราคาแล้ว กรุณาตรวจและกดอนุมัติ',fix:'กำลังซ่อม',part:'รออะไหล่ ร้านจะแจ้งเมื่อของมาถึง',
-    ready:'ซ่อมเสร็จแล้ว มารับเครื่องได้เลย',done:'รับเครื่องเรียบร้อยแล้ว ขอบคุณที่ใช้บริการ',back:'คืนเครื่องแล้ว (ไม่ได้ซ่อม)',cancel:'งานนี้ถูกยกเลิก'}[p.st];
+  const msg={recv:`ร้านรับ${IT()}แล้ว รอช่างตรวจเช็ก`,check:'ช่างกำลังตรวจเช็กอาการ',quote:'ร้านแจ้งราคาแล้ว กรุณาตรวจและกดอนุมัติ',fix:'กำลังซ่อม',part:'รออะไหล่ ร้านจะแจ้งเมื่อของมาถึง',
+    ready:`ซ่อมเสร็จแล้ว มารับ${IT()}ได้เลย`,done:`รับ${IT()}เรียบร้อยแล้ว ขอบคุณที่ใช้บริการ`,back:`คืน${IT()}แล้ว (ไม่ได้ซ่อม)`,cancel:'งานนี้ถูกยกเลิก'}[p.st];
   const s=p.shop||{};
   app.innerHTML=`<div class="narrow stack">
-    <section class="panel trk"><div class="small muted">งานซ่อม <span class="mono">${esc(p.id)}</span> · รับเครื่อง ${esc(p.at)}</div>
+    <section class="panel trk"><div class="small muted">งานซ่อม <span class="mono">${esc(p.id)}</span> · รับ${IT()} ${esc(p.at)}</div>
       <h2 style="margin:6px 0 2px">${esc(p.model)}</h2><div class="muted">${esc(p.type)} · คุณ${esc(p.cust)}</div>
       <div class="bigst ${STC[p.st]||''}">${esc(p.stLabel)}</div><p style="margin:6px 0 0">${esc(msg)}</p>
-      ${!done?`<div class="steps">${STEPS.map((x,i)=>`<div class="stp${i<idx?' on':i===idx?' cur':''}"><i></i><span>${esc(i===2&&!p.quote?'ตกลงราคา':BIZ.st[x].replace('พร้อมรับเครื่อง','พร้อมรับ'))}</span></div>`).join('')}</div>`:''}
+      ${!done?`<div class="steps">${STEPS.map((x,i)=>`<div class="stp${i<idx?' on':i===idx?' cur':''}"><i></i><span>${esc(i===2&&!p.quote?'ตกลงราคา':BIZ.st[x].replace(`พร้อมรับ${IT()}`,'พร้อมรับ'))}</span></div>`).join('')}</div>`:''}
       ${p.due&&!done?`<div class="small">นัดรับ ${esc(isoTH(p.due))}</div>`:''}</section>
     ${p.quote?`<section class="panel"><h3>ราคาซ่อม</h3>${quoteTable(p.quote)}
       ${p.canAnswer?`<div class="stack"><button class="btn btn-ok btn-block big-act" id="ok">${icon('check')}อนุมัติ ซ่อมได้เลย</button>
-        <details id="nod"><summary class="btn btn-line btn-block">ไม่ซ่อม ขอรับเครื่องคืน</summary><div class="field" style="margin-top:8px"><label for="no-r">บอกเหตุผลให้ร้านทราบ <span class="opt">(ไม่บังคับ)</span></label>
-          <div class="chips">${['ราคาสูงไป','ขอเปลี่ยนอะไหล่ที่ถูกกว่า','จะซื้อเครื่องใหม่','ขอคิดดูก่อน'].map(r=>`<button type="button" class="chip" data-rs="${esc(r)}">${esc(r)}</button>`).join('')}</div>
+        <details id="nod"><summary class="btn btn-line btn-block">ไม่ซ่อม ขอรับ${IT()}คืน</summary><div class="field" style="margin-top:8px"><label for="no-r">บอกเหตุผลให้ร้านทราบ <span class="opt">(ไม่บังคับ)</span></label>
+          <div class="chips">${['ราคาสูงไป','ขอเปลี่ยนอะไหล่ที่ถูกกว่า',`จะซื้อ${IT()}ใหม่`,'ขอคิดดูก่อน'].map(r=>`<button type="button" class="chip" data-rs="${esc(r)}">${esc(r)}</button>`).join('')}</div>
           <textarea class="input" id="no-r" rows="2" maxlength="200"></textarea><button class="btn btn-bad btn-block" id="no">ยืนยัน ไม่ซ่อม</button></div></details></div><div id="qe"></div>`
-        :p.qstate==='ok'?'<div class="alert ok">คุณอนุมัติราคานี้แล้ว</div>':p.qstate==='no'?'<div class="alert info">คุณไม่อนุมัติราคา ร้านจะคืนเครื่องให้</div>':p.st==='quote'?'<div class="alert info">ติดต่อร้านเพื่อแจ้งว่าอนุมัติหรือไม่</div>':''}</section>`:''}
-    ${p.photosIn&&p.photosIn.length?`<section class="panel">${gallery('รูปสภาพเครื่องตอนรับ',p.photosIn)}</section>`:''}
-    ${p.dep&&!p.receipt?`<section class="panel"><h3>มัดจำที่จ่ายแล้ว ${baht(p.dep)} บาท</h3><div class="small muted">หักออกจากค่าซ่อมตอนรับเครื่อง</div></section>`:''}
-    ${p.due2&&!p.receipt&&!['back','cancel','quote'].includes(p.st)?`<section class="panel"><h3>ยอดชำระ ${baht(p.due2)} บาท</h3>${p.dep?`<div class="small muted">ค่าซ่อม ${baht(p.total)} หักมัดจำ ${baht(p.dep)}</div>`:''}${p.pay?payBox(p.pay,p.due2,DEMO)+'<div class="small muted">โอนแล้วแจ้งร้าน หรือแสดงสลิปตอนมารับเครื่อง</div>':'<div class="small muted">ชำระที่ร้านตอนรับเครื่อง</div>'}</section>`:''}
+        :p.qstate==='ok'?'<div class="alert ok">คุณอนุมัติราคานี้แล้ว</div>':p.qstate==='no'?`<div class="alert info">คุณไม่อนุมัติราคา ร้านจะคืน${IT()}ให้</div>`:p.st==='quote'?'<div class="alert info">ติดต่อร้านเพื่อแจ้งว่าอนุมัติหรือไม่</div>':''}</section>`:''}
+    ${p.photosIn&&p.photosIn.length?`<section class="panel">${gallery(`รูปสภาพ${IT()}ตอนรับ`,p.photosIn)}</section>`:''}
+    ${p.dep&&!p.receipt?`<section class="panel"><h3>มัดจำที่จ่ายแล้ว ${baht(p.dep)} บาท</h3><div class="small muted">หักออกจากค่าซ่อมตอนรับ${IT()}</div></section>`:''}
+    ${p.due2&&!p.receipt&&!['back','cancel','quote'].includes(p.st)?`<section class="panel"><h3>ยอดชำระ ${baht(p.due2)} บาท</h3>${p.dep?`<div class="small muted">ค่าซ่อม ${baht(p.total)} หักมัดจำ ${baht(p.dep)}</div>`:''}${p.pay?payBox(p.pay,p.due2,DEMO)+`<div class="small muted">โอนแล้วแจ้งร้าน หรือแสดงสลิปตอนมารับ${IT()}</div>`:`<div class="small muted">ชำระที่ร้านตอนรับ${IT()}</div>`}</section>`:''}
     ${p.receipt?`<section class="panel"><h3>ชำระแล้ว ${baht(p.total)} บาท</h3><div class="small">ใบเสร็จ ${esc(p.receipt.no)} · ${esc(p.receipt.at)} · ${esc(p.receipt.method)}</div>
       ${p.wUntil?`<div class="alert ok" style="margin-top:8px">รับประกัน ${p.wdays} วัน ถึง <b>${esc(isoTH(p.wUntil))}</b> · ถ้ามีปัญหา แจ้งเลขงาน ${esc(p.id)} กับร้าน</div>`:''}</section>`:''}
     ${p.canRate?`<section class="panel"><h3>ให้คะแนนร้าน</h3><div class="small muted">ช่วยบอกร้านว่าบริการเป็นอย่างไร ร้านเท่านั้นที่เห็น</div>
@@ -1335,6 +1538,7 @@ function paintHead(){
 async function boot2(){try{const d=await run('apiInit',tok());BIZ=d.biz;if(d.me)ME=d.me}catch(e){}}
 async function boot(){
   document.querySelectorAll('.modal').forEach(m=>m.remove());
+  if(NEED_CONNECT)return vConnect();
   const tk=DEMO?'':new URLSearchParams(location.search).get('t');
   try{if(DEMO)await demoReady();
     const d=await run('apiInit',DEMO&&tk?'':tok());BIZ=d.biz;
