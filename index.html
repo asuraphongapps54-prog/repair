@@ -199,6 +199,9 @@ textarea.input{min-height:84px;resize:vertical}
 .mh b{font-family:var(--f-head)}
 .mtot{font-family:var(--f-mono);font-weight:600;white-space:nowrap}
 .mtot.bad{color:var(--bad);font-family:var(--f-body);font-size:.84rem}
+.mtot.warn{color:#B45309;font-family:var(--f-body);font-size:.84rem;white-space:normal}
+.duo{display:grid;gap:16px;align-items:start}.duo>div:empty{display:none}.duo .newsbig{margin:0}@media (min-width:900px){.duo:has(#news-top:not(:empty)){grid-template-columns:1fr 1fr}}
+.today .item{width:100%;text-align:left;border:0;background:none;font:inherit;color:inherit;display:flex;align-items:center;gap:12px}.today .ic-s{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:var(--soft,#eef6f5);flex:none}.today.ok{color:var(--good,#047857)}.tmbox{border:1px dashed var(--line);border-radius:12px;padding:10px 12px;display:grid;gap:8px}
 .mrow .field label{font-size:.82rem;font-weight:500;color:var(--muted)}
 .mrow.billed{grid-template-columns:1fr;color:var(--muted)}
 .meter{height:8px;border-radius:999px;background:var(--sunk);overflow:hidden;border:1px solid var(--line)}
@@ -482,6 +485,69 @@ a.gal-i{align-items:center;justify-content:center;aspect-ratio:1;border:1px soli
   html.print-mode #printroot{display:block}html.print-mode .doc{padding:0;font-size:13.5pt}@page{margin:16mm}}
 /*@@SHAREDCSS@@*/
 
+/* ===== หน้าตาใหม่สำหรับแพ็กเกจโปร (ตระกูลเดียวกับ Residence Cloud สีเขียวอมฟ้า) · ฉบับฟรีใช้หน้าตาเดิม ===== */
+html[data-plan="pro"]{--f-body:"IBM Plex Sans Thai",system-ui,sans-serif;--glass:#FFFFFF;--glass-b:#E3E8F0;--blur:none;--blue:#2563EB;--blue-soft:#EFF4FF;--violet:#7C3AED;--violet-soft:#F3EEFF}
+html[data-plan="pro"] body::before{display:none}
+html[data-plan="pro"] .av{background:linear-gradient(135deg,#2DD4BF,#0F766E);color:#fff}
+html[data-plan="pro"] .who,html[data-plan="pro"] .fs{background:#fff;border-color:var(--line)}
+html[data-plan="pro"] .demo{background:#fff;border-bottom-color:var(--line)}
+html[data-plan="pro"] .modal-box{background:#fff;border:1px solid var(--line);backdrop-filter:none}
+html[data-plan="pro"] .input{background:#fff;border-color:#D5DCE7;border-radius:10px}
+html[data-plan="pro"] .input:focus{border-color:#14B8A6;box-shadow:0 0 0 4px rgba(20,184,166,.16)}
+html[data-plan="pro"] .btn{border-radius:10px}
+html[data-plan="pro"] .btn-acc,html[data-plan="pro"] .cam,html[data-plan="pro"] .big-act.btn-acc{background:#0F766E;border-color:#0F766E;color:#fff;box-shadow:0 6px 14px -8px #0F766E}
+html[data-plan="pro"] .big-act.btn-line,html[data-plan="pro"] .btn-line{background:#fff;color:var(--ink);border:1px solid var(--line);box-shadow:0 1px 2px rgba(15,23,42,.05)}
+html[data-plan="pro"] .big-act{border-radius:14px}
+html[data-plan="pro"] .back{background:#fff;border:1px solid var(--line);border-radius:10px}
+html[data-plan="pro"] .seg button[aria-pressed="true"],html[data-plan="pro"] .tabs button[aria-selected="true"],html[data-plan="pro"] .fs button[aria-pressed="true"]{background:#0F766E;color:#fff}
+html[data-plan="pro"] .chip{background:#fff;border-color:var(--line)}
+html[data-plan="pro"] .chip[aria-pressed="true"]{background:#0E1628;border-color:#0E1628;color:#fff}
+html[data-plan="pro"] .sk{background:linear-gradient(90deg,#EEF2F7 25%,#F8FAFC 40%,#EEF2F7 60%);background-size:400% 100%}
+html[data-plan="pro"] .ic{background:#E6F6F4;color:#0F766E;border-radius:12px}
+html[data-plan="pro"] .tile .ic,html[data-plan="pro"] .tile.t0 .ic,html[data-plan="pro"] .tile.t1 .ic,html[data-plan="pro"] .tile.t2 .ic,html[data-plan="pro"] .tile.t3 .ic{background:#E6F6F4;color:#0F766E;box-shadow:none;width:44px;height:44px;border-radius:12px}
+html[data-plan="pro"] .tile.t1 .ic{background:#EFF4FF;color:#2563EB}html[data-plan="pro"] .tile.t2 .ic{background:#F3EEFF;color:#7C3AED}html[data-plan="pro"] .tile.t3 .ic{background:#FEF3DD;color:#B45309}
+html[data-plan="pro"] .count b{background:none;-webkit-text-fill-color:currentColor;color:var(--ink)}
+html[data-plan="pro"] .tile.tadm{background:#0B1A1E;color:#fff;border-color:#0B1A1E}html[data-plan="pro"] .tile.tadm h3{color:#fff}
+html[data-plan="pro"] .tile.tadm p{color:#AEB8CC}html[data-plan="pro"] .tile.tadm .ic{background:#173339;color:#5EEAD4}
+html[data-plan="pro"] .hero{box-shadow:0 18px 40px -18px rgba(15,118,110,.6)}
+html[data-plan="pro"] .hero .h-bar i{background:linear-gradient(90deg,#fff,#CCFBF1)}
+
+html[data-plan="pro"]{--bg:#F3F5F9;--surface:#FFFFFF;--sunk:#F8FAFC;--ink:#0E1628;--muted:#4A5568;--line:#E3E8F0;
+  --teal:#0F766E;--teal-soft:#E6F6F4;--acc:#0F766E;--m1:#0F766E;--m2:#2563EB;--m3:#7C3AED;--m4:#D97706;
+  --shadow:0 1px 2px rgba(15,23,42,.05),0 1px 1px rgba(15,23,42,.03);--f-head:"IBM Plex Sans Thai",system-ui,sans-serif}
+html[data-plan="pro"] body{background:var(--bg)}
+html[data-plan="pro"] .top{background:color-mix(in srgb,#F3F5F9 85%,transparent);backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid var(--line);box-shadow:none}
+html[data-plan="pro"] .mark{background:linear-gradient(135deg,#2DD4BF,#0F766E 60%,#134E4A);color:#fff;border-radius:11px;box-shadow:0 6px 16px -6px #0F766E}
+html[data-plan="pro"] .pro-b{background:linear-gradient(135deg,#F59E0B,#D97706);color:#fff}
+html[data-plan="pro"] .panel{border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);background:var(--surface)}
+html[data-plan="pro"] .tiles{gap:12px}
+html[data-plan="pro"] .tile{background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);color:var(--ink);transition:transform .12s,box-shadow .12s}
+html[data-plan="pro"] .tile:hover{transform:translateY(-2px);box-shadow:0 8px 20px -8px rgba(15,23,42,.18)}
+html[data-plan="pro"] .tile .ic{background:var(--teal-soft);color:var(--teal);border-radius:12px}
+html[data-plan="pro"] .tile h3{color:var(--ink)}html[data-plan="pro"] .tile p{color:var(--muted)}
+html[data-plan="pro"] .tile .count b{color:var(--ink)}
+html[data-plan="pro"] .btn-acc{background:var(--teal);border-color:var(--teal);box-shadow:0 6px 14px -8px var(--teal)}
+html[data-plan="pro"] .hello h2{font-weight:600;letter-spacing:-.01em}
+html[data-plan="pro"] .today{border-left:4px solid var(--teal)}
+html[data-plan="pro"] .hero{background:radial-gradient(120% 120% at 100% 0%,#2DD4BF 0%,transparent 55%),linear-gradient(135deg,#134E4A,#0F766E 60%,#115E59);color:#fff;border:0}
+.pside{display:none}
+@media (min-width:1024px){
+  html[data-plan="pro"].has-side body{padding-left:256px}
+  html[data-plan="pro"].has-side .pside{display:flex;position:fixed;left:0;top:0;bottom:0;width:256px;background:#0B1A1E;color:#AEB8CC;flex-direction:column;padding:16px 12px;gap:4px;z-index:30;overflow-y:auto}
+  html[data-plan="pro"].has-side .top .brand{visibility:hidden}
+  html[data-plan="pro"].has-side main{max-width:1180px}
+  .pside .pb{display:flex;align-items:center;gap:10px;padding:4px 8px 16px}.pside .pb .mark{width:36px;height:36px;display:grid;place-items:center}
+  .pside .pb b{color:#fff;display:block;font-size:.95rem;line-height:1.2}.pside .pb small{color:#6B778F;font-size:.72rem;letter-spacing:.04em}
+  .pside .grp{font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:#6B778F;padding:12px 10px 4px}
+  .pside button.nv{display:flex;align-items:center;gap:11px;width:100%;padding:9px 10px;border-radius:10px;border:0;background:none;color:#C9D2E3;font:inherit;font-size:.92rem;cursor:pointer;text-align:left;position:relative}
+  .pside button.nv:hover{background:#13272C;color:#fff}.pside button.nv[aria-current="page"]{background:#173339;color:#fff}
+  .pside button.nv[aria-current="page"]::before{content:"";position:absolute;left:-12px;top:8px;bottom:8px;width:3px;border-radius:0 3px 3px 0;background:#5EEAD4}
+  .pside button.nv svg{width:20px;height:20px}.pside .cnt{margin-left:auto;min-width:20px;height:20px;padding:0 6px;border-radius:99px;background:#24434A;color:#E2E8F0;font-size:.72rem;display:grid;place-items:center;font-weight:600}
+  .pside .cnt.hot{background:#F59E0B;color:#1F1300}.pside .lk{margin-left:auto;font-size:.7rem;color:#F5B94A}
+  .pside .ft{margin-top:auto;padding:10px;border-top:1px solid #18303A;font-size:.75rem;color:#6B778F;display:flex;align-items:center;gap:8px}
+  .pside .ft button{margin-left:auto;background:#13272C;border:1px solid #1F3A41;color:#C9D2E3;border-radius:8px;padding:4px 10px;font:inherit;font-size:.75rem;cursor:pointer}
+}
+
 /* ===== ใช้ร่วม: หน้าเชื่อมชีต + ผู้ช่วยคู่มือ ===== */
 .cn-h{display:flex;gap:12px;align-items:flex-start}.cn-h>svg{width:34px;height:34px;flex:none;color:var(--acc,#5b5bd6)}
 .cn-steps{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:8px}.cn-steps li span{display:block;font-size:.88em;color:var(--muted)}
@@ -510,6 +576,14 @@ html[data-public] .helpfab,html.printing .helpfab{display:none}
 .hp .tabs{display:flex;gap:6px}.hp .tabs button{flex:1;display:inline-flex;gap:6px;align-items:center;justify-content:center;min-height:44px;white-space:nowrap;padding:0 8px;font-size:.92em}
 .hp .tabs button svg,.hp .linkbtn svg,.hp .alert svg{width:18px;height:18px;flex:none}.hp .linkbtn{display:inline-flex;gap:4px;align-items:center}
 .hp .btn svg{width:20px;height:20px}
+
+/* แถบเมนูซ้ายฉบับโปร (5 แอป): ชื่อร้านด้านบนยังกดกลับหน้าแรกได้ */
+html[data-plan="pro"].has-side .top .brand{visibility:visible}
+/* กล่อง "งานวันนี้" ในหน้าแรก (ใช้ทุกแอป) */
+.today .item{width:100%;text-align:left;border:0;background:none;font:inherit;color:inherit;display:flex;align-items:center;gap:12px}
+.today .ic-s{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:var(--mute-bg);flex:none}
+.today .ic-s.bad{background:var(--bad-bg);color:var(--bad)}
+.zhead{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin:4px 0 8px}.zhead h3{margin:0}
 
 /* ===== ร้านซ่อม ===== */
 .kbtn{text-align:left;cursor:pointer;font:inherit;color:inherit}.kbtn:active{transform:scale(.98)}.kpi.bad{border-color:var(--bad)}.kpi.bad b{color:var(--bad)}
@@ -705,6 +779,7 @@ function ppPayload(id,amt){id=String(id||'').replace(/\D/g,'');const f=(t,v)=>t+
   const s=f('00','01')+f('01',a?'12':'11')+f('29',f('00','A000000677010111')+acc)+f('58','TH')+f('53','764')+(a?f('54',a):'')+'6304';
   return s+crc16(s)}
 const ppShow=id=>{id=String(id||'');return id.length===10?id.slice(0,3)+'-'+id.slice(3,6)+'-'+id.slice(6):id.length===13?id[0]+'-'+id.slice(1,5)+'-'+id.slice(5,10)+'-'+id.slice(10,12)+'-'+id[12]:id};
+let qrLib=null;
 const loadQR=()=>qrLib||(qrLib=new Promise((res,rej)=>{if(window.qrcode)return res(window.qrcode);const s=document.createElement('script');
   s.src='https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js';s.onload=()=>window.qrcode?res(window.qrcode):rej(new Error('no qr'));
   s.onerror=()=>{qrLib=null;s.remove();rej(new Error('โหลดตัวสร้าง QR ไม่ได้'))};document.head.appendChild(s)}));
@@ -750,6 +825,7 @@ function apiUrl(){
   const k=store.get(CONNECT_KEY);return k&&KEY_RE.test(k)?'https://script.google.com/macros/s/'+k+'/exec':'';
 }
 const NEED_CONNECT=!DEMO&&!apiUrl();
+{const m=document.getElementById('mark');if(m&&!m.innerHTML.trim())m.innerHTML=icon('logo')}   // โลโก้มุมบนขึ้นตั้งแต่หน้าแรก (ก่อนเชื่อมชีต / ก่อนเข้าสู่ระบบ)
 const shopLink=()=>{const k=keyOf(apiUrl());return k?location.origin+location.pathname.replace(/[^/]*$/,'')+'?k='+k:''};
 function vConnect(){
   document.documentElement.dataset.public='1';
@@ -872,6 +948,8 @@ sections:[
   'อย่าแก้หรือลบหัวคอลัมน์ในชีต ถ้าเผลอลบ ให้กดเมนูของแอป → ตั้งค่าครั้งแรก อีกครั้ง']}
 ],
 faq:[
+ ['ลูกค้าไม่ตอบเรื่องราคา','งานที่ "รอลูกค้าตกลงราคา" เกิน 2 วัน จะขึ้นในกล่อง "งานวันนี้" หน้าแรก เปิดงานแล้วกด "ส่งข้อความหาลูกค้า" เพื่อทวงคำตอบ'],
+ ['คาร์แคร์ใช้แอปไหน','คาร์แคร์ / ล้างรถ ย้ายไปใช้แอปนัดคิว (จองคิวล้าง ราคาตามขนาดรถ ขายแพ็กเกจล้าง 10 ครั้ง) เหมาะกว่าแอปร้านซ่อม'],
  ['ลูกค้าทำใบรับงานหาย','ค้นจากเบอร์โทรใน "ลูกค้า" หรือ "งานซ่อม" แล้วพิมพ์ใบรับงานซ้ำ หรือส่งลิงก์ติดตามใหม่'],
  ['ลูกค้าไม่มารับเครื่อง','เปิดงาน กด "ส่งทาง LINE" เตือนลูกค้า งานที่ซ่อมเสร็จนานแล้วจะขึ้นในหน้าแรก'],
  ['ช่างหลายคน แบ่งงานอย่างไร','กดที่งาน → เปลี่ยน "ผู้รับผิดชอบ" ช่างแต่ละคนเห็นงานของตัวเองในหน้าแรก'],
@@ -918,6 +996,41 @@ function helpOpen(start){
   f.setAttribute('aria-label','คู่มือและคำถามที่พบบ่อย ('+BOT_NAME+')');f.innerHTML=botSvg(46)+'<span>คู่มือ</span>';f.onclick=()=>helpOpen();document.body.appendChild(f)})();
 document.addEventListener('click',e=>{const t=e.target.closest&&e.target.closest('[data-help]');if(t){e.preventDefault();helpOpen(t.dataset.help?{sec:t.dataset.help}:null)}});
 const helpRow=()=>`<button type="button" class="helprow" data-help>${botSvg(40)}<span><b>คู่มือการใช้งาน</b><span class="small muted">${BOT_NAME}พาดูทีละขั้น · คำถามที่พบบ่อย · ลิงก์ร้าน</span></span>${icon('chev')}</button>`;
+
+/* แถบเมนูด้านซ้ายของฉบับโปร (จอกว้าง 1024px ขึ้นไป) ใช้ร่วมกับแอปร้านอาหาร นัดคิว ร้านค้า ร้านซ่อม ที่พักรายวัน
+   อ่านรายการเมนูจากไทล์ในหน้าแรก (#tiles .tile[data-go]) จึงไม่ต้องเขียนเมนูซ้ำในแต่ละแอป · หน้าตาใช้ CSS .pside จากแอปหอพัก */
+(function(){
+  let NAV=[],synced=Date.now(),busyNav=false,raf=0;
+  const root=document.documentElement;
+  const grab=()=>{const T=document.querySelectorAll('#tiles>.tile[data-go]');if(!T.length)return;
+    NAV=[...T].map(t=>({go:t.dataset.go,label:((t.querySelector('h3')||t).textContent||'').trim(),ic:(t.querySelector('.ic')||{}).innerHTML||'',
+      badge:((t.querySelector('.badge')||{}).textContent||'').trim(),lock:t.classList.contains('tlock')}))};
+  const isOn=()=>{try{return PRO()&&!!ME&&!!BIZ&&!root.dataset.public&&!root.dataset.kitchen&&!['login','register','forgot','must'].includes(view.name)}catch(e){return false}};
+  const openTile=g=>{const t=document.querySelector(`#tiles>.tile[data-go="${g}"]`);if(t){t.click();return}
+    if(busyNav)return;busyNav=true;go('home');let n=0;
+    const w=setInterval(()=>{const x=document.querySelector(`#tiles>.tile[data-go="${g}"]`);if(x||++n>40){clearInterval(w);busyNav=false;if(x)x.click()}},100)};
+  function paint(){
+    const on=isOn();root.classList.toggle('has-side',on);
+    let el=document.getElementById('pside');if(!on){if(el)el.innerHTML='';return}
+    grab();
+    if(!el){el=document.createElement('aside');el.id='pside';el.className='pside';el.setAttribute('aria-label','เมนูหลัก');document.body.prepend(el)}
+    const cur=view.name==='admin'?'admin':view.name;
+    const nv=x=>`<button class="nv" data-sn="${esc(x.go)}" ${cur===x.go?'aria-current="page"':''}>${x.ic}${esc(x.label)}${x.lock?'<span class="lk">โปร</span>':x.badge?`<span class="cnt">${esc(x.badge)}</span>`:''}</button>`;
+    const work=NAV.filter(x=>x.go!=='admin'),adm=NAV.filter(x=>x.go==='admin');
+    el.innerHTML=`<div class="pb"><span class="mark">${icon('logo')}</span><div><b>${esc(BIZ.org||'')}</b><small>${esc(document.title)} · PRO</small></div></div>
+      <button class="nv" data-sn="home" ${cur==='home'?'aria-current="page"':''}>${icon('home')}หน้าแรก</button>
+      ${work.length?`<div class="grp">งานประจำวัน</div>${work.map(nv).join('')}`:''}${adm.length?`<div class="grp">จัดการ</div>${adm.map(nv).join('')}`:''}
+      <div class="ft"><span id="psync">อัปเดตเมื่อสักครู่</span><button id="prf" title="ดึงข้อมูลล่าสุดจากชีต">ดึงข้อมูลล่าสุด</button></div>`;
+    el.querySelectorAll('[data-sn]').forEach(b=>b.onclick=()=>{const g=b.dataset.sn;g==='home'?go('home'):openTile(g)});
+    document.getElementById('prf').onclick=()=>{synced=Date.now();render();toast('ดึงข้อมูลล่าสุดแล้ว')};
+  }
+  const later=()=>{cancelAnimationFrame(raf);raf=requestAnimationFrame(paint)};
+  const start=()=>{const a=document.getElementById('app');if(!a)return setTimeout(start,200);
+    new MutationObserver(later).observe(a,{childList:true,subtree:true});
+    new MutationObserver(later).observe(root,{attributes:true,attributeFilter:['data-plan','data-public','data-kitchen']});later()};
+  start();
+  setInterval(()=>{const e=document.getElementById('psync');if(e){const s=Math.round((Date.now()-synced)/1e3);e.textContent=s<15?'อัปเดตเมื่อสักครู่':s<3600?'อัปเดต '+Math.round(s/60)+' นาทีที่แล้ว':'กดดึงข้อมูลล่าสุด'}},15e3);
+})();
 
 /* ===================== แอปร้านซ่อม: หน้าจอ ===================== */
 const ROLE_TH={admin:'เจ้าของร้าน',staff:'พนักงาน'};
@@ -977,7 +1090,7 @@ function vHome(){
       <h2>${hr<12?'สวัสดีตอนเช้า':hr<17?'สวัสดีตอนบ่าย':'สวัสดีตอนเย็น'} คุณ${esc(ME.nick||ME.first)}</h2></div></div>
     <div id="h-al"></div>
     ${can('intake')?`<button class="btn btn-acc big-act" id="go-new">${icon('plus')}รับ${IT()}ใหม่</button>`:''}
-    <div class="kpis" id="hk">${'<div class="sk"></div>'.repeat(4)}</div>
+    <div class="kpis" id="hk">${'<div class="sk"></div>'.repeat(4)}</div><div id="today"></div>
     <div class="tiles" id="tiles"></div>
     <section class="panel"><h3>งานที่ฉันดูแลอยู่</h3><div class="list" id="mine">${loadingList}</div></section>${helpRow()}${logoutBtn()}</div>`;
   const gn=$('#go-new');if(gn)gn.onclick=()=>go('new');
@@ -988,8 +1101,16 @@ function vHome(){
       +(h.unclaimed?`<button class="alert warn unclbtn" id="h-unc">${icon('box','pico')} ${IT()}ซ่อมเสร็จแล้วค้างร้านเกิน ${h.unclaimDays} วัน <b>${h.unclaimed} ${IT()}</b> · กดเพื่อส่งข้อความทวง</button>`:'');
     bindItems($('#h-al'));{const u=$('#h-unc');if(u)u.onclick=()=>go('jobs',{st:'long'})}
     const k=(l,n,sub,st,cls)=>`<button class="kpi kbtn${cls?' '+cls:''}" data-st="${st||''}"><div class="kpi-h">${l}</div><div class="kpi-n"><div><b data-cu="${n}">${n}</b><span>${sub}</span></div></div></button>`;
-    $('#hk').innerHTML=k('งานค้างทั้งหมด',h.active,'งาน','')+k(`พร้อมรับ${IT()}`,h.by.ready,'รอลูกค้ามารับ','ready')+k('รออนุมัติราคา',h.by.quote,'งาน','quote')+k('เลยวันนัดรับ',h.late,'งาน','late',h.late?'bad':'');
+    $('#hk').innerHTML=k('งานค้างทั้งหมด',h.active,'งาน','')+k(`พร้อมรับ${IT()}`,h.by.ready,'รอลูกค้ามารับ','ready')+k('รอลูกค้าตกลงราคา',h.by.quote,'งาน','quote')+k('เลยวันนัดรับ',h.late,'งาน','late',h.late?'bad':'');
     app.querySelectorAll('.kbtn').forEach(b=>b.onclick=()=>go('jobs',{st:b.dataset.st}));
+    {const I=[],it=(ic,t,sub,st,cls)=>I.push(`<button class="item click" data-tst="${st}"><span class="ic-s${cls?' '+cls:''}">${icon(ic)}</span><div class="item-main"><b>${t}</b><div class="item-sub">${sub}</div></div></button>`);
+      if(h.readyNew&&can('intake'))it('bell',`ซ่อมเสร็จ รอลูกค้ามารับ ${h.readyNew} งาน`,'เปิดงานแล้วกด "ส่งข้อความหาลูกค้า" เพื่อแจ้งรับ'+IT(),'ready');
+      if(h.quoteOld)it('clock',`รอลูกค้าตกลงราคาเกิน 2 วัน ${h.quoteOld} งาน`,'ส่งข้อความทวงคำตอบ หรือโทรถามลูกค้า','quote','bad');
+      if(h.dueToday)it('calendar',`นัดรับวันนี้ ${h.dueToday} งาน`,'ตรวจว่าจะเสร็จทันหรือต้องแจ้งเลื่อน','late');
+      if(h.late)it('clock',`เลยวันนัดรับ ${h.late} งาน`,'แจ้งลูกค้าว่าจะเสร็จเมื่อไร','late','bad');
+      if(h.lowParts)it('box',`อะไหล่ใกล้หมด ${h.lowParts} รายการ`,'สั่งของเพิ่มที่ "สต็อกอะไหล่"','parts');
+      const el=$('#today');el.innerHTML=I.length?`<section class="panel today"><h3>${icon('check','pico')} งานวันนี้</h3><div class="list">${I.join('')}</div></section>`:'';
+      el.querySelectorAll('[data-tst]').forEach(b=>b.onclick=()=>b.dataset.tst==='parts'?go('parts'):go('jobs',{st:b.dataset.tst}))}
     const T=[['jobs','งานซ่อม','ค้นหา ติดตาม อัปเดตสถานะ','wrench',h.active+' ค้าง'],['cust','ลูกค้า','ประวัติงานตามเบอร์โทร','user',''],
       ['parts','สต็อกอะไหล่','รับของเข้า ตัดสต็อก ของใกล้หมด','box',h.lowParts?h.lowParts+' ใกล้หมด':''],['income','รายรับ','สรุปรายเดือน ดาวน์โหลด CSV','chart','']];
     $('#tiles').innerHTML=T.filter(t=>t[0]==='jobs'||t[0]==='cust'||(t[0]==='parts'&&(can('parts')||can('fix')||locked('parts')))||(t[0]==='income'&&(can('income')||locked('income'))))
